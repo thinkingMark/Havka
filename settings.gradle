@@ -1,0 +1,2 @@
+rootProject.name='Havka'
+include ':app'
