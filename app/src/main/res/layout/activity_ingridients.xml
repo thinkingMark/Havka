@@ -21,11 +21,12 @@
             android:layout_marginLeft="100sp"
             android:layout_marginTop="20sp"
             android:layout_marginRight="100sp"
+            android:background="@drawable/borsch"
+            android:fontFamily="@font/nextart_bold"
             android:text="BORSCH"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
-            android:background="@drawable/borsch"
             android:textStyle="bold" />
 
         <EditText
@@ -37,6 +38,7 @@
             android:layout_marginRight="100sp"
             android:background="@drawable/borsch"
             android:ems="10"
+            android:fontFamily="@font/nextart_bold"
             android:hint="LITERS"
             android:paddingTop="6sp"
             android:paddingBottom="6sp"
@@ -50,9 +52,10 @@
             android:layout_marginLeft="100sp"
             android:layout_marginTop="20sp"
             android:layout_marginRight="100sp"
+            android:background="@drawable/generate"
+            android:fontFamily="@font/nextart_bold"
             android:text="GENERATE"
             android:textAlignment="center"
-            android:background="@drawable/generate"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp" />
 
@@ -69,79 +72,87 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
+                <CheckBox
                     android:id="@+id/sousage"
-                    android:layout_width="133dp"
+                    android:layout_width="140dp"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Sausage(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfSousage"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
-                <TextView
+                <CheckBox
                     android:id="@+id/beet"
-                    android:layout_width="133dp"
+                    android:layout_width="140dp"
                     android:layout_height="30dp"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Beet(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfBeet"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
+                <CheckBox
                     android:id="@+id/carrot"
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Carrot(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfCarrot"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
                     android:textSize="20sp" />
 
-                <TextView
+                <CheckBox
                     android:id="@+id/ppotato"
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Potato(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfPotato"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
                     android:textSize="20sp" />
@@ -152,38 +163,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
+                <CheckBox
                     android:id="@+id/oil"
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Oil(ml)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfOil"
-                    android:layout_width="65dp"
+                    android:layout_width="58dp"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
                     android:textSize="20sp" />
 
-                <TextView
+                <CheckBox
                     android:id="@+id/onion"
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Onion(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfOnion"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
                     android:textSize="20sp" />
@@ -193,38 +208,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
+                <CheckBox
                     android:id="@+id/paste"
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Paste(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfPast"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
                     android:textSize="20sp" />
 
-                <TextView
+                <CheckBox
                     android:id="@+id/water"
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Water(ml)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfWater"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
                     android:textSize="20sp" />
@@ -234,121 +253,134 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
+                <CheckBox
                     android:id="@+id/cabbage"
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Cabbage(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfCabbage"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
-                <TextView
+                <CheckBox
                     android:id="@+id/tomato"
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Tomato(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfTomato"
-                    android:layout_width="65dp"
+                    android:layout_width="58dp"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="133dp"
+                <CheckBox
+                    android:layout_width="140dp"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Garlic(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfGarlic"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
-                <TextView
+                <CheckBox
                     android:id="@+id/pepper"
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Pepper(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfPepper"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
-                    android:text="Salt(g)"
+                <CheckBox
+                    android:id="@+id/salt"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
+                    android:text="Salt"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfSalt"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/parsley "
-                    android:layout_width="133dp"
-                    android:layout_height="30dp"
+                <CheckBox
+                    android:id="@+id/parsley"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:text="Parsley(g)"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/valueOfParsley"
-                    android:layout_width="65dp"
-                    android:layout_height="30dp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/comfortaa_light"
                     android:textAlignment="center"
                     android:textColor="#6A6868"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </TableRow>
 
         </TableLayout>
