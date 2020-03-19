@@ -7,13 +7,353 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SIXTH PAGE"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160px"
+        android:layout_marginBottom="160px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/borsch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="100sp"
+            android:text="BORSCH"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:background="@drawable/borsch"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/liter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="100sp"
+            android:background="@drawable/borsch"
+            android:ems="10"
+            android:hint="LITERS"
+            android:paddingTop="6sp"
+            android:paddingBottom="6sp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/generateLiters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="100sp"
+            android:text="GENERATE"
+            android:textAlignment="center"
+            android:background="@drawable/generate"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20px"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="60px"
+            android:layout_marginBottom="40px"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/sousage"
+                    android:layout_width="133dp"
+                    android:layout_height="match_parent"
+                    android:text="Sausage(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfSousage"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/beet"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Beet(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfBeet"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/carrot"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Carrot(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfCarrot"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ppotato"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Potato(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfPotato"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/oil"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Oil(ml)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfOil"
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/onion"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Onion(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfOnion"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/paste"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Paste(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfPast"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/water"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Water(ml)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfWater"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/cabbage"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Cabbage(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfCabbage"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tomato"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Tomato(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfTomato"
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="133dp"
+                    android:layout_height="match_parent"
+                    android:text="Garlic(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfGarlic"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/pepper"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Pepper(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfPepper"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Salt(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfSalt"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/parsley "
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:text="Parsley(g)"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/valueOfParsley"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:textAlignment="center"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp" />
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bootom_navigation"
@@ -23,6 +363,7 @@
         android:background="@drawable/background"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+
         app:menu="@menu/menu_navigation3" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
