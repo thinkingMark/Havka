@@ -43,17 +43,35 @@
         android:layout_marginBottom="160px"
         android:orientation="vertical">
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100px"
+                android:layout_marginTop="30px"
+                android:layout_marginRight="100px"
+                android:layout_marginBottom="30px"
+                android:background="@drawable/search_background"
+                android:fontFamily="@font/comfortaa"
+                android:hint="Search"
+                android:paddingTop="30px"
+                android:paddingBottom="30px"
+                android:paddingRight="30px"
+                android:paddingLeft="70px"/>
+
+            <ListView
+                android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:dividerHeight="0dp"
+                android:divider="@android:color/transparent" />
+        </LinearLayout>
 
-                <ListView
-                    android:id="@+id/listView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-            </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
