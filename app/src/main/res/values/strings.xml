@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Havka</string>
-    <string name="textview">TextView</string>
+    <string name="first_courses">First courses</string>
+    <string name="second_courses">Second courses</string>
+    <string name="drinks">Drinks</string>
+    <string name="desserts">Desserts</string>
 </resources>
