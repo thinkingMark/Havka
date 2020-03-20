@@ -118,16 +118,37 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/meal_title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nextart_bold"
-            android:text="MEAL NAME"
-            android:textColor="#3c3c3c"
-            android:layout_marginLeft="15dp"
-            android:textSize="72px" />
+            android:orientation="horizontal"
+            android:progressTint="#FFFFFF">>
 
+            <TextView
+                android:id="@+id/meal_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/nextart_bold"
+                android:text="MEAL NAME"
+                android:textColor="#3c3c3c"
+                android:textSize="72px" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="1"
+                android:rating="0"
+                android:clickable="true"
+                android:stepSize="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp" />
+
+
+
+        </LinearLayout>
         <TextView
             android:id="@+id/meal_description"
             android:layout_width="match_parent"
@@ -147,9 +168,9 @@
             android:background="@drawable/button_background"
             android:fontFamily="@font/nextart_bold"
             android:text="Cook"
-            android:textColor="#ffffff" />
-        
-     </LinearLayout>
+            android:textColor="#ffffff"/>
+
+    </LinearLayout>
 
 </LinearLayout>
 

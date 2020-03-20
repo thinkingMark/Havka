@@ -6,48 +6,51 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SortedMeals extends AppCompatActivity {
 
     ListView listView;
-    String mMealTitle[] = {"BORSHT","VARENYKY","UZVAR","SIRNIKS"};
-    String mMealDescription[] = {"Borsch is a sour soup common in Eastern Europe and Northern Asia.Made with beetroots as one of the main ingredients, which give the dish its distincti-ve red color.",
+    String MealTitle[] = {"BORSHT","VARENYKY","UZVAR","SIRNIKS"};
+    String MealDescription[] = {"Borsch is a sour soup common in Eastern Europe and Northern Asia.Made with beetroots as one of the main ingredients, which give the dish its distincti-ve red color. Nice dish.",
             "Ukrainian dish made of boiled dough with diverse fillings, such as meat,vegetables, fruits, cheese etc. These Ukrainian dumplings can be the main course as well as the dessert.",
             "The uzvar is a national Ukrainian beverage, cooked with dried fruits and berries.Some housewives tend to add species – star anise or nutmeg – that will give the drink an exotic flavor.",
-            "Fried Eastern Slavic quark pancakes, garnished with sour cream, varenye, jam, honey or apple sauce. The cheese mixture may contain raisins for extra flavour."};
-    String mMealPrice[] = {"10$","9$","16$","7$"};
-    String mMealTime[] = {"1 H","2 h","2.5h","0.5H"};
-    int mMealImages[] = {R.drawable.uzvar,R.drawable.varenyky,R.drawable.uzvar,R.drawable.sirniks};
+            "Fried Eastern Slavic quark pancakes, garnished with sour cream, varenye, jam, honey or apple sauce. The cheese mixture may contain raisins for extra flavour. Nice dish"};
+    String MealPrice[] = {"0.5$","0.8$","0.5$","3.5$"};
+    String MealTime[] = {"1 H","2 h","20 m","40 m"};
+    String MealCapacity[] = {"1 L","1 kg","1 l","1 kg"};
+    int MealImages[] = {R.drawable.borsh,R.drawable.varenyky,R.drawable.uzvar,R.drawable.sirniks};
+    List<MealModel> listMeals = new ArrayList<>();
+    CustomAdapter customAdapter;
+    EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sorted_meals);
 
-        listView = findViewById(R.id.listView);
-
         // Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
         BottomNavigationView bottomNavigationView = findViewById(R.id.bootom_navigation);
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(),Information.class));
-                        overridePendingTransition(0,0);
-                    }
-                }
-        );
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.meals);
-
         // Переключатель сторінок
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -71,23 +74,99 @@ public class SortedMeals extends AppCompatActivity {
             }
         });
 
+        for(int i=0;i<MealTitle.length;i++){
+            MealModel mealModel = new MealModel(MealTitle[i],MealDescription[i],MealPrice[i],MealTime[i],MealCapacity[i],MealImages[i]);
+        }
+        listView = (ListView)findViewById(R.id.listView);
+        initList();
+         editText = (EditText)findViewById(R.id.editText);
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")){
+                    initList();
+                }
+                else{
+                    searchItem(s.toString());
+                }
+            }
+
+
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    class CustomAdapter extends BaseAdapter{
+
+
+
+        @Override
+        public int getCount() {
+            return MealImages.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public CharSequence[] getAutofillOptions() {
+            return super.getAutofillOptions();
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = getLayoutInflater().inflate(R.layout.some_meal,null);
+
+            TextView mMealTitle = (TextView)view.findViewById(R.id.meal_title);
+            TextView mMealDescription = (TextView)view.findViewById(R.id.meal_description);
+            TextView mMealPrice = (TextView)view.findViewById(R.id.meal_price);
+            TextView mMealTime = (TextView)view.findViewById(R.id.meal_time);
+            TextView mMealCapacity = (TextView)view.findViewById(R.id.meal_capacity);
+            ImageView mMealImage = (ImageView)view.findViewById(R.id.meal_image);
+
+            mMealTitle.setText(MealTitle[position]);
+            mMealDescription.setText(MealDescription[position]);
+            mMealPrice.setText(MealPrice[position]);
+            mMealTime.setText(MealTime[position]);
+            mMealCapacity.setText(MealCapacity[position]);
+            mMealImage.setImageResource(MealImages[position]);
+
+            return view;
+        }
+
+
 
     }
 
-    class MyAdapter extends ArrayAdapter<String>{
-        Context context;
-        String rMealTitle;
-        String rMealDescription;
-        String rMealPrice;
-        String rMealTime;
-        int rMealImage;
-
-        MyAdapter(Context c, String title[], String description[], String price[], String time[],int images[]){
-            super(c,R.layout.m){
-
-            };
-
+    public void searchItem(String textToSearch){
+        for(int i=0;i<MealTitle.length;i++){
+            if(!MealTitle[i].contains(textToSearch)){
+                listView.removeViewAt(i);
+            }
+            customAdapter.notifyDataSetChanged();
         }
 
     }
+    public void initList(){
+        customAdapter = new CustomAdapter();
+        listView.setAdapter(customAdapter);
+    }
+
 }
