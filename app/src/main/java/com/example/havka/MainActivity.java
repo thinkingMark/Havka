@@ -25,8 +25,43 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.meals);
 
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(
+        //Перехід на 4 сторінку
+        Button food_1 = findViewById(R.id.courses1);
+        Button food_2 = findViewById(R.id.courses2);
+        Button food_3 = findViewById(R.id.drinks1);
+        Button food_4 = findViewById(R.id.dessert1);
+
+        food_1.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
+                        overridePendingTransition(0,0);
+                    }
+                }
+        );
+
+        food_2.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
+                        overridePendingTransition(0,0);
+                    }
+                }
+        );
+
+        food_3.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
+                        overridePendingTransition(0,0);
+                    }
+                }
+        );
+
+        food_4.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
