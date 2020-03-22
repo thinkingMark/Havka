@@ -24,7 +24,7 @@ public class Ingridients extends AppCompatActivity {
             50, 70,   // oil, onion
             100, 700, // paste, water,
             100, 100, // cabbage, tomato,
-            10, 30,   // garlic, pepper,
+            10, 15,   // garlic, pepper,
             15, 30    // salt, parsley
     };
 

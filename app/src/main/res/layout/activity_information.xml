@@ -7,13 +7,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160px"
+        android:layout_marginBottom="160px"
+        android:orientation="vertical">
+
+        <TextView
+        android:id="@+id/borsch"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FIFTH PAGE"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+        android:layout_marginLeft="100sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginRight="100sp"
+        android:background="@drawable/borsch"
+        android:fontFamily="@font/nextart_bold"
+        android:text="BORSCH"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="294dp"
+            android:layout_height="248dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25sp"
+            android:layout_marginBottom="25sp"
+            app:srcCompat="@drawable/borsht" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/aboutBorsch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginRight="40px"
+                    android:fontFamily="@font/comfortaa_light"
+                    android:textAlignment="viewStart"
+                    android:textColor="#6A6868"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlCompat" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bootom_navigation"

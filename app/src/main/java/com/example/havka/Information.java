@@ -6,10 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
 public class Information extends AppCompatActivity {
+
+    private TextView textView;
+    private StringBuilder information = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +50,36 @@ public class Information extends AppCompatActivity {
                 }
                 return false;
             }
+
         });
+        readFile();
+    }
 
+    private void readFile(){
+        BufferedReader reader = null;
 
+        try {
+            reader = new BufferedReader(
+                    new InputStreamReader(getAssets().open("Borsch.txt"))
+            );
 
+            String line;
+            while ((line = reader.readLine()) != null) {
+                information.append(line);
+                information.append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            TextView output = (TextView) findViewById(R.id.aboutBorsch);
+            output.setText((CharSequence) information);
+        }
     }
 }
