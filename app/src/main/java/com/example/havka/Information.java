@@ -54,7 +54,9 @@ public class Information extends AppCompatActivity {
         });
         readFile();
     }
-
+    /*
+    Зчитуємо інформацію з файлу і виводимо на екран
+     */
     private void readFile(){
         BufferedReader reader = null;
 
