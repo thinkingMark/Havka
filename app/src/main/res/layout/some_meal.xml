@@ -136,15 +136,16 @@
 
             <RatingBar
                 android:id="@+id/ratingBar"
-                style="@style/Widget.AppCompat.RatingBar.Small"
+                style="@android:style/Widget.DeviceDefault.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:clickable="false"
+                android:isIndicator="false"
                 android:numStars="1"
                 android:rating="0"
-                android:clickable="true"
-                android:stepSize="1"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp" />
+                android:stepSize="1" />
 
 
 
@@ -161,6 +162,7 @@
             android:textSize="36px" />
 
         <Button
+            android:id="@+id/meal_button"
             android:layout_width="300px"
             android:layout_height="75px"
             android:layout_marginLeft="65dp"

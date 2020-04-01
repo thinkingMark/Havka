@@ -3,6 +3,7 @@ package com.example.havka;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +18,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -77,6 +80,7 @@ public class SortedMeals extends AppCompatActivity {
         for(int i=0;i<MealTitle.length;i++){
             MealModel mealModel = new MealModel(MealTitle[i],MealDescription[i],MealPrice[i],MealTime[i],MealCapacity[i],MealImages[i]);
         }
+
         listView = (ListView)findViewById(R.id.listView);
         initList();
          editText = (EditText)findViewById(R.id.editText);
@@ -97,13 +101,13 @@ public class SortedMeals extends AppCompatActivity {
                 }
             }
 
-
-
             @Override
             public void afterTextChanged(Editable s) {
 
             }
         });
+
+
     }
 
     class CustomAdapter extends BaseAdapter{
@@ -134,6 +138,8 @@ public class SortedMeals extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View view = getLayoutInflater().inflate(R.layout.some_meal,null);
 
+            RatingBar ratingBar = (RatingBar)view.findViewById(R.id.ratingBar);
+            Button mButton = (Button)view.findViewById(R.id.meal_button);
             TextView mMealTitle = (TextView)view.findViewById(R.id.meal_title);
             TextView mMealDescription = (TextView)view.findViewById(R.id.meal_description);
             TextView mMealPrice = (TextView)view.findViewById(R.id.meal_price);
@@ -141,12 +147,29 @@ public class SortedMeals extends AppCompatActivity {
             TextView mMealCapacity = (TextView)view.findViewById(R.id.meal_capacity);
             ImageView mMealImage = (ImageView)view.findViewById(R.id.meal_image);
 
+
             mMealTitle.setText(MealTitle[position]);
             mMealDescription.setText(MealDescription[position]);
             mMealPrice.setText(MealPrice[position]);
             mMealTime.setText(MealTime[position]);
             mMealCapacity.setText(MealCapacity[position]);
             mMealImage.setImageResource(MealImages[position]);
+
+
+            ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                @Override
+                public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                    Toast.makeText(SortedMeals.this,"Value" + rating, Toast.LENGTH_LONG).show();
+                }
+            });
+
+            mButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getApplicationContext(),Information.class));
+                    overridePendingTransition(0,0);
+                }
+            });
 
             return view;
         }
@@ -158,7 +181,7 @@ public class SortedMeals extends AppCompatActivity {
     public void searchItem(String textToSearch){
         for(int i=0;i<MealTitle.length;i++){
             if(!MealTitle[i].contains(textToSearch)){
-                listView.removeViewAt(i);
+
             }
             customAdapter.notifyDataSetChanged();
         }
