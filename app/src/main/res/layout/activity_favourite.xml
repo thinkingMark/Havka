@@ -32,7 +32,9 @@
                 android:paddingTop="30px"
                 android:paddingBottom="30px"
                 android:paddingRight="30px"
-                android:paddingLeft="70px"/>
+                android:paddingLeft="70px"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
             <ListView
                 android:id="@+id/listView"
