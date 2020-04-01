@@ -7,76 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/courses1"
-        android:gravity=""
-        android:layout_width="246dp"
-        android:layout_height="77dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="37dp"
-        android:background="#FBFBFB"
-        android:stateListAnimator="@null"
-        android:text="@string/first_courses"
-        android:textColor="#000000"
-        android:textColorHighlight="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textColorLink="#FFFFFF"
-        android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/courses2"
-        android:gravity=""
-        android:layout_width="246dp"
-        android:layout_height="77dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="29dp"
-        android:background="#FBFBFB"
-        android:stateListAnimator="@null"
-        android:text="@string/second_courses"
-        android:textColor="#000000"
-        android:textColorHighlight="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textColorLink="#FFFFFF"
-        android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/drinks1"
-        android:gravity=""
-        android:layout_width="246dp"
-        android:layout_height="77dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="29dp"
-        android:background="#FBFBFB"
-        android:stateListAnimator="@null"
-        android:text="@string/drinks"
-        android:textColor="#000000"
-        android:textColorLink="#FFFFFF"
-        android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/dessert1"
-        android:gravity=""
-        android:layout_width="246dp"
-        android:layout_height="65dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="133dp"
-        android:layout_marginTop="400dp"
-        android:background="#FBFBFB"
-        android:stateListAnimator="@null"
-        android:text="@string/desserts"
-        android:textColor="#000000"
-        android:textSize="24sp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bootom_navigation"
@@ -91,70 +24,72 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
-        android:layout_height="160px"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="-1dp"
+        android:layout_height="160px"
         android:background="@drawable/backgroundtop"
-        app:itemIconSize="40dp"
         app:itemIconTint="@drawable/selector"
+        app:itemIconSize="40dp"
         app:itemTextColor="@drawable/selector2"
-        app:menu="@menu/menu_navigation2">
+        app:menu="@menu/menu_navigation2" >
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="50dp"
-            app:srcCompat="@drawable/logo"
-            android:contentDescription="@string/todo" />
-
+            android:layout_marginLeft="50dp"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/logo" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="81dp"
-        android:layout_height="77dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="282dp"
-        android:contentDescription="TODO"
-        app:srcCompat="@drawable/cocacola" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160px"
+        android:layout_marginBottom="160px"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="107dp"
-        android:layout_height="62dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="87dp"
-        app:srcCompat="@drawable/soup" />
+        <Button
+            android:id="@+id/firstcourse_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="40px"
+            android:background="@drawable/firstcourse_button"
+            android:shadowRadius="30" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="99dp"
-        android:layout_height="79dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="184dp"
-        app:srcCompat="@drawable/steak" />
+        <Button
+            android:id="@+id/secondcourse_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="80px"
+            android:layout_marginRight="40px"
+            android:background="@drawable/secondcourse_button"
+            android:shadowRadius="30" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="110dp"
-        android:layout_height="82dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="377dp"
-        app:srcCompat="@drawable/waffle"
-        android:contentDescription="TODO" />
+        <Button
+            android:id="@+id/drinks_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="80px"
+            android:layout_marginRight="40px"
+            android:background="@drawable/drinks_buttons"
+            android:shadowRadius="30" />
+
+        <Button
+            android:id="@+id/desserts_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="80px"
+            android:layout_marginRight="40px"
+            android:background="@drawable/deserts_button"
+            android:shadowRadius="30" />
+    </LinearLayout>
 
 </RelativeLayout>

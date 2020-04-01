@@ -13,6 +13,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button buttonFirstCourse;
+    Button buttonSecondCourse;
+    Button buttonDrinks;
+    Button buttonDesserts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,54 +29,48 @@ public class MainActivity extends AppCompatActivity {
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.meals);
 
-
-        //Перехід на 4 сторінку
-        Button food_1 = findViewById(R.id.courses1);
-        Button food_2 = findViewById(R.id.courses2);
-        Button food_3 = findViewById(R.id.drinks1);
-        Button food_4 = findViewById(R.id.dessert1);
-
-        food_1.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
-                        overridePendingTransition(0,0);
-                    }
-                }
-        );
-
-        food_2.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
-                        overridePendingTransition(0,0);
-                    }
-                }
-        );
-
-        food_3.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
-                        overridePendingTransition(0,0);
-                    }
-                }
-        );
-
-        food_4.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
-                        overridePendingTransition(0,0);
-                    }
-                }
-        );
-
         // Переключатель сторінок
+        buttonFirstCourse = findViewById(R.id.firstcourse_button);
+        buttonSecondCourse = findViewById(R.id.secondcourse_button);
+        buttonDrinks = findViewById(R.id.drinks_button);
+        buttonDesserts = findViewById(R.id.desserts_button);
+
+        buttonFirstCourse.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
+                        overridePendingTransition(0,0);
+                    }
+                }
+        );
+        buttonSecondCourse.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
+                        overridePendingTransition(0,0);
+                    }
+                }
+        );
+        buttonDrinks.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
+                        overridePendingTransition(0,0);
+                    }
+                }
+        );
+        buttonDesserts.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
+                        overridePendingTransition(0,0);
+                    }
+                }
+        );
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
