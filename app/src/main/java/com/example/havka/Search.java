@@ -20,7 +20,6 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -76,11 +75,13 @@ public class Search extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         ingredientsForSearch = new IngredientsForSearch();
 
-        // Отримує елементи з іншого класу
+        /**
+         * Отримуємо елементи з класу
+         * IngredientsForSearch
+         */
 
         ArrayList<String> ingredients =
                 new ArrayList<String>(Arrays.asList(ingredientsForSearch.getIngredients()));
-
 
         /**
          * @setAdapter метод який виводить
@@ -96,6 +97,7 @@ public class Search extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // яка позиція такий елемент відкриється
                 if( position >= 1 && position <= 12)
                     customAdapter.setMeals(0);
                 else if(position >= 13 && position <= 17)
@@ -107,14 +109,11 @@ public class Search extends AppCompatActivity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
     }
 
     class CustomAdapter extends BaseAdapter{
-
         RatingBar mRatingBar;
         Button mButton;
         TextView mMealTitle;
@@ -125,9 +124,7 @@ public class Search extends AppCompatActivity {
         ImageView mMealImage;
 
         @Override
-        public int getCount() {
-            return 1;
-        }
+        public int getCount() { return 1; }
 
         @Override
         public Object getItem(int position) {
