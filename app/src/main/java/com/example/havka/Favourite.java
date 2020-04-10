@@ -57,7 +57,7 @@ public class Favourite extends AppCompatActivity {
                 return false;
             }
         });
-        listView = (ListView)findViewById(R.id.listView);
+        listView = (ListView)findViewById(R.id.list);
         initList();
     }
     public void initList(){
