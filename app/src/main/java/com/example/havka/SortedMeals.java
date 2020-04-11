@@ -131,8 +131,6 @@ public class SortedMeals extends AppCompatActivity {
                         Meals.meals[i].setFavourite(false);
                         Meals.favouriteList.remove(Meals.meals[i]);
                     }
-
-
                 }
             });
 
