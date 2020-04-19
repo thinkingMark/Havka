@@ -39,6 +39,9 @@ public class Search extends AppCompatActivity {
         // Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
         BottomNavigationView bottomNavigationView = findViewById(R.id.bootom_navigation);
 
+        // Верхня панель
+        BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
+
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.search);
 
@@ -62,6 +65,19 @@ public class Search extends AppCompatActivity {
                 return false;
             }
         });
+
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.meals) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         listView = (ListView)findViewById(R.id.list);
         searchIngredients();
         initList();
@@ -107,6 +123,8 @@ public class Search extends AppCompatActivity {
                 else if(position >= 23 && position <= 30)
                     customAdapter.setMeals(3);
             }
+
+
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}

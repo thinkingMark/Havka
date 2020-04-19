@@ -24,19 +24,20 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
         android:layout_height="160px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
         android:background="@drawable/backgroundtop"
-        app:itemIconTint="@drawable/selector"
         app:itemIconSize="40dp"
+        app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector2"
-        app:menu="@menu/menu_navigation2" >
+        app:menu="@menu/menu_navigation2">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_marginLeft="50dp"
             android:layout_width="120dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
             app:srcCompat="@drawable/logo" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

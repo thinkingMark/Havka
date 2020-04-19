@@ -5,8 +5,9 @@
     <item/>
     <item/>
     <item
-        android:id="@+id/settings"
-        android:icon="@drawable/ic_menu_black_24dp"/>
+        android:id="@+id/meals"
+        android:icon="@drawable/ic_menu_black_24dp"
+        android:title="" />
 
 
 </menu>

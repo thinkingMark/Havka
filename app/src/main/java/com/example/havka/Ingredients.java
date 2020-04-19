@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Ingridients extends AppCompatActivity {
+public class Ingredients extends AppCompatActivity {
 
     private EditText liter;
     private Button generate;
@@ -58,6 +58,9 @@ public class Ingridients extends AppCompatActivity {
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.ingridients);
 
+        // Верхня панель
+        BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
+
         // Переключатель сторінок
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -78,6 +81,19 @@ public class Ingridients extends AppCompatActivity {
                 return false;
             }
         });
+
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.meals) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         addListenerButton();
     }
 
@@ -114,7 +130,7 @@ public class Ingridients extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(
-                                Ingridients.this, liter.getText(),
+                                Ingredients.this, liter.getText(),
                                 Toast.LENGTH_SHORT
                         ).show();
 

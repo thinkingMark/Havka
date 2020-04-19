@@ -59,6 +59,9 @@ public class Instructions extends AppCompatActivity {
         // Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
         BottomNavigationView bottomNavigationView = findViewById(R.id.bootom_navigation);
 
+        // Верхня панель
+        BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
+
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.instructions);
 
@@ -68,7 +71,7 @@ public class Instructions extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.ingridients:
-                        startActivity(new Intent(getApplicationContext(),Ingridients.class));
+                        startActivity(new Intent(getApplicationContext(), Ingredients.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.inforamation:
@@ -78,6 +81,18 @@ public class Instructions extends AppCompatActivity {
                     case R.id.instructions:
 
                         return true;
+                }
+                return false;
+            }
+        });
+
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.meals) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
                 }
                 return false;
             }
