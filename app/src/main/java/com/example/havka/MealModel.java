@@ -7,6 +7,9 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
+/**
+ *  Модель страви.
+ */
 public class MealModel extends ArrayList<Parcelable> {
 
     String MealTitle;
@@ -14,16 +17,28 @@ public class MealModel extends ArrayList<Parcelable> {
     String MealPrice;
     String MealTime;
     String MealCapacity;
+    String[] Ingridients;
     int MealImages;
     boolean isFavourite;
 
-    public MealModel(String mealTitle, String mealDescription,String mealPrice, String mealTime, String mealCapacity, int mealImages) {
+    public MealModel(String mealTitle, String mealDescription,String mealPrice, String mealTime,
+                     String mealCapacity, int mealImages) {
         MealTitle = mealTitle;
         MealDescription = mealDescription;
         MealPrice = mealPrice;
         MealTime = mealTime;
         MealCapacity = mealCapacity;
         MealImages = mealImages;
+    }
+    public MealModel(String mealTitle, String mealDescription,String mealPrice, String mealTime,
+                     String mealCapacity, int mealImages, String[] ingridients) {
+        MealTitle = mealTitle;
+        MealDescription = mealDescription;
+        MealPrice = mealPrice;
+        MealTime = mealTime;
+        MealCapacity = mealCapacity;
+        MealImages = mealImages;
+        Ingridients = ingridients;
     }
 
     public String getMealTitle() {
@@ -81,6 +96,15 @@ public class MealModel extends ArrayList<Parcelable> {
     public void setFavourite(boolean favourite) {
         isFavourite = favourite;
     }
+
+    public String[] getIngridients() {
+        return Ingridients;
+    }
+
+    public void setIngridients(String[] ingridients) {
+        Ingridients = ingridients;
+    }
+
 
     @NonNull
     @Override

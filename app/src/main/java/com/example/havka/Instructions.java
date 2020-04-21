@@ -1,8 +1,5 @@
 package com.example.havka;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -11,10 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;
-
+/**
+ *
+ *  Cторінка інструкції приготування страви. За архітектурою сторінка №6
+ *  Містить порядок приготування та checkbox'и для зручності
+ *  Містить таймер приготування.
+ *  @version 0.0
+ */
 public class Instructions extends AppCompatActivity {
     public static final long START_TIME_IN_MILLIS = 900000;
 
@@ -62,7 +68,11 @@ public class Instructions extends AppCompatActivity {
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.instructions);
 
-        // Переключатель сторінок
+        /**
+         *  Нижнє поле навігації.
+         *  Перехід між сторінками №5, №6, №7
+         *  По стандарту вибрана сторінкка №6
+         */
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

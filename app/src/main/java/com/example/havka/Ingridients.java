@@ -1,7 +1,5 @@
 package com.example.havka;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,8 +9,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+/**
+ *
+ *  Cторінка інгрієнтів для приготування страви. За архітектурою сторінка №7
+ *  Містить калькулятор, що підлаштовується під необхідку ємність приготування.
+ *  Виводить в кількості необхідий інгрідієнт.
+ *  @version 0.0
+ */
 public class Ingridients extends AppCompatActivity {
 
     private EditText liter;
@@ -58,7 +65,11 @@ public class Ingridients extends AppCompatActivity {
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.ingridients);
 
-        // Переключатель сторінок
+        /**
+         *  Нижнє поле навігації.
+         *  Перехід між сторінками №5, №6, №7
+         *  По стандарту вибрана сторінкка №7
+         */
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
