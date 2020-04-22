@@ -46,7 +46,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
             <EditText
                 android:id="@+id/editText"
@@ -63,11 +65,10 @@
                 android:paddingBottom="30px"
                 android:paddingRight="30px"
                 android:paddingLeft="70px"
-                android:focusable="false"
-                android:focusableInTouchMode="false"/>
+                />
 
             <ListView
-                android:id="@+id/list"
+                android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:dividerHeight="0dp"

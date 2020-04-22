@@ -1,9 +1,5 @@
 package com.example.havka;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,8 +13,18 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+/**
+ *
+ *  Cторінка відсортованих страв. За архітектурою програми №4.
+ *  Містить список страв. Кожен елемент містить міімальну інформацію про страву*
+ *   та кнопку для переходу для детального опису страви.
+ *   @version 1.0
+ *
+ */
 public class SortedMeals extends AppCompatActivity {
 
     int i;
@@ -30,6 +36,7 @@ public class SortedMeals extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Bundle argumentsFirstPage = getIntent().getExtras();
         String s = argumentsFirstPage.get("meal").toString();
         i = Integer.parseInt(s);
@@ -37,13 +44,14 @@ public class SortedMeals extends AppCompatActivity {
 
         // Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
         BottomNavigationView bottomNavigationView = findViewById(R.id.bootom_navigation);
-
-        // Верхня панель
-        BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
-
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.meals);
         // Переключатель сторінок
+        /**
+         *  Нижнє поле навігації.
+         *  Перехід між сторінками №1, №2, №3
+         *  По стандарту вибрана сторінкка №4
+         */
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -65,29 +73,23 @@ public class SortedMeals extends AppCompatActivity {
                 return false;
             }
         });
-
-        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                if (menuItem.getItemId() == R.id.meals) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        listView = (ListView)findViewById(R.id.list);
+        listView = (ListView)findViewById(R.id.listView);
         initList();
-        editText = (EditText)findViewById(R.id.editText);
+         editText = (EditText)findViewById(R.id.editText);
 
 
     }
 
-
+    /**
+     * Адаптер, що заповнює список.
+     */
     class CustomAdapter extends BaseAdapter{
 
+        /**
+         * Метод відповідальний за величину списку.
+         * @return величина списку
+         * В нашому випадку повертає 1. Кількість страв повзоляє тільки так
+         */
         @Override
         public int getCount() {
             return 1;
@@ -108,6 +110,15 @@ public class SortedMeals extends AppCompatActivity {
             return super.getAutofillOptions();
         }
 
+        /**
+         * Метод, що привязує елемент списку до some_meal.xml
+         * Встановлює поля some_meal.xml деякими стравами.
+         * В нашому випадку встановлє страви з масиву страв Meals.meals
+         * @param position
+         * @param convertView
+         * @param parent
+         * @return
+         */
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View view = getLayoutInflater().inflate(R.layout.some_meal,null);
@@ -132,7 +143,10 @@ public class SortedMeals extends AppCompatActivity {
                 mRatingBar.setRating(1);
             else mRatingBar.setRating(0);
 
-
+            /**
+             *  При натиску на зірочку видаляється\додається елемент з\в списку улюблених страв.
+             *  Виконуються зміни на сторінці №5
+             */
 
             mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                 @Override
@@ -144,12 +158,14 @@ public class SortedMeals extends AppCompatActivity {
                     else{
                         Meals.meals[i].setFavourite(false);
                         Meals.favouriteList.remove(Meals.meals[i]);
+                        initList();
                     }
-
-
                 }
             });
-
+            /**
+             *  При натиску на кнопку переходить на сторінку №5 за архітектурою програми.
+             *  Сторінка містить інформацію про страву.
+             */
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -165,7 +181,10 @@ public class SortedMeals extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Метод для оновлення списку страв.
+     * За рахунок оновлення адаптера оновлюється список.
+     */
     public void initList(){
         customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);

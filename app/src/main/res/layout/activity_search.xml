@@ -62,12 +62,30 @@
             android:paddingTop="30px"
             android:paddingRight="30px"
             android:paddingBottom="30px" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="76px"
+            android:orientation="horizontal">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingridient_list"
+                android:layout_marginRight="20px"
+                android:layout_marginLeft="20px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:scrollbars="horizontal" />
+
+        </LinearLayout>
 
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:dividerHeight="0dp"
+android:layout_marginTop="10px"
+
             android:divider="@android:color/transparent" />
 
     </LinearLayout>

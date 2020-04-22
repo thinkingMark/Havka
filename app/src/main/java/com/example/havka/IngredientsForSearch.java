@@ -1,6 +1,8 @@
 package com.example.havka;
 
-
+/**
+ *  Модель інгрідієнтів.
+ */
 public class IngredientsForSearch {
 
     private String[] ingredients;
@@ -8,7 +10,7 @@ public class IngredientsForSearch {
     public IngredientsForSearch(){
         ingredients = new String[] {
                 // First course
-                "Select an ingredients",
+                "Select ingridients",
                 "Sausage", "Beet",
                 "Carrot", "Potato",
                 "Oil", "Onion",

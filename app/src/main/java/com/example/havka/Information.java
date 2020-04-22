@@ -1,20 +1,25 @@
 package com.example.havka;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-
+/**
+ *
+ *  Cторінка інформації для певної страви.
+ *  Містить фото та детальну інформацію про страву.
+ *  @version 0.0
+ *
+ */
 public class Information extends AppCompatActivity {
 
     private TextView textView;
@@ -35,6 +40,11 @@ public class Information extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.inforamation);
 
         // Переключатель сторінок
+        /**
+         *  Нижнє поле навігації.
+         *  Перехід між сторінками №5, №6, №7
+         *  По стандарту вибрана сторінкка №5
+         */
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

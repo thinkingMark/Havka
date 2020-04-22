@@ -1,7 +1,6 @@
 package com.example.havka;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,31 +13,50 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+/**
+ *  Cторінка "Улюблені страви" нашої програми, за архітектурою програми №2. Містить улюблені страви, вибрані при натиску на зірочку.
+ *  @version 1.0
+ */
 public class Favourite extends AppCompatActivity {
-
+    /**
+     * Список улюблених страв, що змінюється адаптером.
+     */
     ListView listView;
-    int numberMeal;
+    /**
+     * Адаптер, що заповнює список.
+     */
     CustomAdapter customAdapter;
     View view;
+    /**
+     *  Нижнє поле навігації.
+     *  Перехід між сторінками №1, №2, №3
+     *  По стандарту вибрана сторінкка №2
+     */
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourite);
-        Bundle argumentsFourthPage = getIntent().getExtras();
+        /**
+         *  Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
+         */
+        bottomNavigationView = findViewById(R.id.bootom_navigation);
 
-        // Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bootom_navigation);
-
-        // Верхня панель
-        BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
-
-        // Спочатку вибране "Meals",бо це головна сторінка
+        /**
+         *  Спочатку вибране "Meals",бо це головна сторінка
+         */
         bottomNavigationView.setSelectedItemId(R.id.favourite);
 
         // Переключатель сторінок
+        /**
+         *  Нижнє поле навігації.
+         *  Перехід між сторінками №1, №2, №3
+         *  По стандарту вибрана сторінкка №2
+         */
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -60,29 +78,30 @@ public class Favourite extends AppCompatActivity {
                 return false;
             }
         });
-
-        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                if (menuItem.getItemId() == R.id.meals) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        listView = (ListView)findViewById(R.id.list);
+        listView = (ListView)findViewById(R.id.listView);
         initList();
     }
+
+    /**
+     * Метод для оновлення списку улюблених страви.
+     * За рахунок оновлення адаптера оновлюється список.
+     */
     public void initList(){
         customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);
 
     }
+
+    /**
+     * Адаптер, що заповнює список.
+     */
     class CustomAdapter extends BaseAdapter {
 
+        /**
+         * Метод відповідальний за величину списку.
+         * @return величина списку
+         * В нашому випадку повертає величину списку улюблених страв.
+         */
         @Override
         public int getCount() {
             return Meals.favouriteList.size();
@@ -103,6 +122,15 @@ public class Favourite extends AppCompatActivity {
             return super.getAutofillOptions();
         }
 
+        /**
+         * Метод, що привязує елемент списку до some_meal.xml
+         * Встановлює поля some_meal.xml деякими стравами.
+         * В нашому випадку встановлє страви з favouriteList - списку улюблених страв
+         * @param position
+         * @param convertView
+         * @param parent
+         * @return
+         */
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             view = getLayoutInflater().inflate(R.layout.some_meal, null);
@@ -126,7 +154,10 @@ public class Favourite extends AppCompatActivity {
                 mRatingBar.setRating(1);
             else mRatingBar.setRating(0);
 
-
+            /**
+            * При натиску на зірочку видаляється\додається елемент з\в списку улюблених страв.
+             ** Після кожного натиску виконує оновлення списку - initList
+            */
             mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                 @Override
                 public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
@@ -141,7 +172,10 @@ public class Favourite extends AppCompatActivity {
 
                 }
             });
-
+            /**
+             *  При натиску на кнопку переходить на сторінку №5 за архітектурою програми.
+             *  Сторінка містить інформацію про страву.
+             */
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
