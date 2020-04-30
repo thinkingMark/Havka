@@ -1,5 +1,10 @@
 package com.example.havka;
 
+import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,6 +13,8 @@ import java.util.List;
  *  Тимчасова база даних. Містить страви
  */
 public class Meals {
+    static String description;
+
     static String[] firstMealIngridients =  {"Sausage", "Beet",
             "Carrot", "Potato",
             "Oil", "Onion",
@@ -20,7 +27,8 @@ public class Meals {
             "1 H",
             "1 L",
             R.drawable.borsh,
-            firstMealIngridients);
+            firstMealIngridients,
+            "Borsch.txt");
 
     static String[] secondMealIngridients =  {"Potato", "Flour",
             "Sour cream", "Onion",
@@ -31,7 +39,8 @@ public class Meals {
             "2 h",
             "1 kg",
             R.drawable.varenyky,
-            secondMealIngridients);
+            secondMealIngridients,
+            "Varenyky.txt");
 
     static String[] thirdMealIngridients =  {"Apples", "Pears",
             "Raisins", "Prunes",
@@ -42,7 +51,8 @@ public class Meals {
             "20 m",
             "1 l",
             R.drawable.uzvar,
-            thirdMealIngridients);
+            thirdMealIngridients,
+            "Uzvar.txt");
 
     static String[] fourthMealIngridients =  {"Farmers cheese", "Eggs",
             "Flour", "Sugar",
@@ -54,7 +64,8 @@ public class Meals {
             "40 m",
             "1 kg",
             R.drawable.sirniks,
-            fourthMealIngridients);
+            fourthMealIngridients,
+            "Sirniks.txt");
     static public MealModel[] meals = {firstMeal, secondMeal, thirdMeal, fouthMeal};
     static List<MealModel> favouriteList = new LinkedList<MealModel>();
     static ArrayList<MealModel> findedList = new ArrayList<>();

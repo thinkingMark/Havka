@@ -35,14 +35,15 @@ public class MainActivity extends AppCompatActivity {
         buttonDrinks = findViewById(R.id.drinks_button);
         buttonDesserts = findViewById(R.id.desserts_button);
 
-        final Intent intent = new Intent(getApplicationContext(),SortedMeals.class);
+        final Intent intentSorted = new Intent(getApplicationContext(),SortedMeals.class);
         buttonFirstCourse.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                       intent.putExtra("meal","0");
-                        startActivity(intent);
+                        intentSorted.putExtra("meal","0");
+                        startActivity(intentSorted);
                         overridePendingTransition(0,0);
+
                     }
                 }
         );
@@ -50,9 +51,10 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        intent.putExtra("meal","1");
-                        startActivity(intent);
+                        intentSorted.putExtra("meal","1");
+                        startActivity(intentSorted);
                         overridePendingTransition(0,0);
+
                     }
                 }
         );
@@ -60,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        intent.putExtra("meal","2");
-                        startActivity(intent);
+                        intentSorted.putExtra("meal","2");
+                        startActivity(intentSorted);
                         overridePendingTransition(0,0);
+
                     }
                 }
         );
@@ -70,9 +73,10 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        intent.putExtra("meal","3");
-                        startActivity(intent);
+                        intentSorted.putExtra("meal","3");
+                        startActivity(intentSorted);
                         overridePendingTransition(0,0);
+
                     }
                 }
         );

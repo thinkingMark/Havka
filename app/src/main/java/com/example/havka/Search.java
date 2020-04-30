@@ -234,11 +234,29 @@ public class Search extends AppCompatActivity {
                 }
             });
 
+            final Intent intentInformation = new Intent(getApplicationContext(), Information.class);
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(), Information.class));
+                    switch (Meals.findedList.get(position).getMealTitle()){
+                        case "BORSHT":
+                            intentInformation.putExtra("meal", 0);
+                            break;
+                        case "VARENYKY":
+                            intentInformation.putExtra("meal", 1);
+                            break;
+                        case "UZVAR":
+                            intentInformation.putExtra("meal", 2);
+                            break;
+                        case "SIRNIKS":
+                            intentInformation.putExtra("meal", 3);
+                            break;
+                        default:
+                            break;
+                    }
+                    startActivity(intentInformation);
                     overridePendingTransition(0, 0);
+
                 }
             });
             return view;
@@ -363,8 +381,8 @@ public class Search extends AppCompatActivity {
         String str = "";
         int cout=0;
         for(int i = 0; i< Meals.meals.length; i++){
-            for( int j = 0; j< Meals.meals[i].Ingridients.length; j++){
-                str += Meals.meals[i].Ingridients[j];
+            for( int j = 0; j< Meals.meals[i].Ingredients.length; j++){
+                str += Meals.meals[i].Ingredients[j];
             }
             for(int k = 0; k < Meals.choosedIngridients.size(); k++){
                 if(str.contains(Meals.choosedIngridients.get(k))){

@@ -17,8 +17,9 @@ public class MealModel extends ArrayList<Parcelable> {
     String MealPrice;
     String MealTime;
     String MealCapacity;
-    String[] Ingridients;
+    String[] Ingredients;
     int MealImages;
+    String FileName;
     boolean isFavourite;
 
     public MealModel(String mealTitle, String mealDescription,String mealPrice, String mealTime,
@@ -31,14 +32,15 @@ public class MealModel extends ArrayList<Parcelable> {
         MealImages = mealImages;
     }
     public MealModel(String mealTitle, String mealDescription,String mealPrice, String mealTime,
-                     String mealCapacity, int mealImages, String[] ingridients) {
+                     String mealCapacity, int mealImages, String[] ingridients, String fileName) {
         MealTitle = mealTitle;
         MealDescription = mealDescription;
         MealPrice = mealPrice;
         MealTime = mealTime;
         MealCapacity = mealCapacity;
         MealImages = mealImages;
-        Ingridients = ingridients;
+        Ingredients = ingridients;
+        FileName = fileName;
     }
 
     public String getMealTitle() {
@@ -85,6 +87,10 @@ public class MealModel extends ArrayList<Parcelable> {
         return MealImages;
     }
 
+    public String getFileName() {
+        return FileName;
+    }
+
     public void setMealImages(int mealImages) {
         MealImages = mealImages;
     }
@@ -97,12 +103,14 @@ public class MealModel extends ArrayList<Parcelable> {
         isFavourite = favourite;
     }
 
+
+
     public String[] getIngridients() {
-        return Ingridients;
+        return Ingredients;
     }
 
     public void setIngridients(String[] ingridients) {
-        Ingridients = ingridients;
+        Ingredients = ingridients;
     }
 
 

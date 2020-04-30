@@ -2,8 +2,6 @@ package com.example.havka;
 
 
 
-import android.widget.ListView;
-
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

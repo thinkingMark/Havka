@@ -36,10 +36,13 @@ public class Favourite extends AppCompatActivity {
      *  По стандарту вибрана сторінкка №2
      */
     BottomNavigationView bottomNavigationView;
+    int i;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_favourite);
         /**
          *  Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
@@ -176,11 +179,29 @@ public class Favourite extends AppCompatActivity {
              *  При натиску на кнопку переходить на сторінку №5 за архітектурою програми.
              *  Сторінка містить інформацію про страву.
              */
+            final Intent intentInformation = new Intent(getApplicationContext(), Information.class);
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(), Information.class));
+                    switch (Meals.favouriteList.get(position).getMealTitle()){
+                        case "BORSHT":
+                            intentInformation.putExtra("meal", 0);
+                            break;
+                        case "VARENYKY":
+                            intentInformation.putExtra("meal", 1);
+                            break;
+                        case "UZVAR":
+                            intentInformation.putExtra("meal", 2);
+                            break;
+                        case "SIRNIKS":
+                            intentInformation.putExtra("meal", 3);
+                            break;
+                        default:
+                            break;
+                    }
+                    startActivity(intentInformation);
                     overridePendingTransition(0, 0);
+
                 }
             });
                 return view;

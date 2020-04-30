@@ -3,6 +3,7 @@ package com.example.havka;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,12 +23,17 @@ import java.io.InputStreamReader;
  */
 public class Information extends AppCompatActivity {
 
-    private TextView textView;
+    private TextView mealTitleInfo;
     private StringBuilder information = new StringBuilder();
+    private ImageView mealImage;
+    private int number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle argumentsFirstPage = getIntent().getExtras();
+        String s = argumentsFirstPage.get("meal").toString();
+        number = Integer.parseInt(s);
         setContentView(R.layout.activity_information);
 
         // Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
@@ -78,17 +84,19 @@ public class Information extends AppCompatActivity {
             }
         });
 
-        readFile();
+        readFile(number);
     }
-    /*
-    Зчитуємо інформацію з файлу і виводимо на екран
-     */
-    private void readFile(){
-        BufferedReader reader = null;
 
+
+
+    /*
+     Зчитуємо інформацію з файлу і виводимо на екран
+    */
+    public void readFile(int i){
+        BufferedReader reader = null;
         try {
             reader = new BufferedReader(
-                    new InputStreamReader(getAssets().open("Borsch.txt"))
+                    new InputStreamReader(getAssets().open(Meals.meals[i].getFileName()))
             );
 
             String line;
@@ -106,11 +114,21 @@ public class Information extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-            TextView output = (TextView) findViewById(R.id.aboutBorsch);
+            TextView output = (TextView) findViewById(R.id.aboutMeals);
             output.setText((CharSequence) information);
+            mealTitleInfo = (TextView) findViewById(R.id.mealTitleInfo);
+            mealTitleInfo.setText(Meals.meals[i].getMealTitle());
+            mealImage = (ImageView) findViewById(R.id.imageMeal);
+            mealImage.setImageResource(Meals.meals[i].getMealImages());
         }
     }
     public StringBuilder getInformation(){
         return information;
     }
+    public int[] Id = {
+            R.id.aboutMeals,
+            R.id.mealTitleInfo,
+            R.id.imageMeal
+    };
+
 }

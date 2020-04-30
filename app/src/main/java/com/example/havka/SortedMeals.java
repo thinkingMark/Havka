@@ -1,6 +1,7 @@
 package com.example.havka;
 
 import android.content.Intent;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,11 +28,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  */
 public class SortedMeals extends AppCompatActivity {
 
-    int i;
+    private int i;
     ListView listView;
     CustomAdapter customAdapter;
     EditText editText;
     Intent favouritePage;
+    Information information = new Information();
+    private int position;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +77,31 @@ public class SortedMeals extends AppCompatActivity {
                 return false;
             }
         });
+
         listView = (ListView)findViewById(R.id.listView);
         initList();
-         editText = (EditText)findViewById(R.id.editText);
-
+        editText = (EditText)findViewById(R.id.editText);
 
     }
+
+
+    //    public void selectFile(){
+//        switch (i) {
+//            case 0:
+//                information.readFile(0);
+//                break;
+//            case 1:
+//                information.readFile(1);
+//                break;
+//            case 2:
+//                information.readFile(2);
+//                break;
+//            case 3:
+//                information.readFile(3);
+//                break;
+//        }
+//    }
+
 
     /**
      * Адаптер, що заповнює список.
@@ -143,6 +166,8 @@ public class SortedMeals extends AppCompatActivity {
                 mRatingBar.setRating(1);
             else mRatingBar.setRating(0);
 
+
+
             /**
              *  При натиску на зірочку видаляється\додається елемент з\в списку улюблених страв.
              *  Виконуються зміни на сторінці №5
@@ -166,19 +191,18 @@ public class SortedMeals extends AppCompatActivity {
              *  При натиску на кнопку переходить на сторінку №5 за архітектурою програми.
              *  Сторінка містить інформацію про страву.
              */
+            final Intent intentInformation = new Intent(getApplicationContext(), Information.class);
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(),Information.class));
+                    intentInformation.putExtra("meal", i);
+                    startActivity(intentInformation);
                     overridePendingTransition(0,0);
                 }
             });
 
             return view;
         }
-
-
-
     }
 
     /**
