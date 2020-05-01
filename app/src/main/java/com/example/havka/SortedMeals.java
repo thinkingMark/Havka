@@ -43,13 +43,17 @@ public class SortedMeals extends AppCompatActivity {
 
         Bundle argumentsFirstPage = getIntent().getExtras();
         String s = argumentsFirstPage.get("meal").toString();
-        i = Integer.parseInt(s);
+        i = Integer.parseInt(s); // сторінка запускається з параметрами, для вибору страви
         setContentView(R.layout.activity_sorted_meals);
 
         // Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
         BottomNavigationView bottomNavigationView = findViewById(R.id.bootom_navigation);
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.meals);
+
+        // Верхня панель
+        BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
+
         // Переключатель сторінок
         /**
          *  Нижнє поле навігації.
@@ -78,30 +82,23 @@ public class SortedMeals extends AppCompatActivity {
             }
         });
 
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.meals) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         listView = (ListView)findViewById(R.id.listView);
         initList();
         editText = (EditText)findViewById(R.id.editText);
 
     }
-
-
-    //    public void selectFile(){
-//        switch (i) {
-//            case 0:
-//                information.readFile(0);
-//                break;
-//            case 1:
-//                information.readFile(1);
-//                break;
-//            case 2:
-//                information.readFile(2);
-//                break;
-//            case 3:
-//                information.readFile(3);
-//                break;
-//        }
-//    }
-
 
     /**
      * Адаптер, що заповнює список.
@@ -200,6 +197,9 @@ public class SortedMeals extends AppCompatActivity {
                     overridePendingTransition(0,0);
                 }
             });
+
+
+
 
             return view;
         }

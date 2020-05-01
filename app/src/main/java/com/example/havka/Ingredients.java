@@ -1,55 +1,46 @@
 package com.example.havka;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 public class Ingredients extends AppCompatActivity {
 
-    private EditText liter;
+    private EditText capacity;
     private Button generate;
-
-    private int[] arrayOfProportion = { // інгдедієнти
-            100, 150, // sausage, beet
-            70, 200,  // carrot, potato,
-            50, 70,   // oil, onion
-            100, 700, // paste, water,
-            100, 100, // cabbage, tomato,
-            10, 15,   // garlic, pepper,
-            15, 30    // salt, parsley
-    };
-
-    /*
-    Створюємо змінні для списку продуктів
-     */
-
-    private TextView sausage;
-    private TextView beet;
-    private TextView carrot;
-    private TextView potato;
-    private TextView oil;
-    private TextView onion;
-    private TextView paste;
-    private TextView water;
-    private TextView cabbage;
-    private TextView tomato;
-    private TextView garlic;
-    private TextView pepper;
-    private TextView salt;
-    private TextView parsley;
+    private TableLayout ingredientsLayout;
+    private CheckBox checkBox;
+    private TextView textView;
+    private Meals meals;
+    private int number;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle argumentsFirstPage = getIntent().getExtras();
+        String s = argumentsFirstPage.get("meal").toString();
+        number = Integer.parseInt(s); // сторінка запускається з параметрами, для вибору страви
         setContentView(R.layout.activity_ingridients);
 
         // Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
@@ -61,6 +52,8 @@ public class Ingredients extends AppCompatActivity {
         // Верхня панель
         BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
 
+        final Intent intentInformation = new Intent(getApplicationContext(),Information.class);
+
         // Переключатель сторінок
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -70,7 +63,8 @@ public class Ingredients extends AppCompatActivity {
 
                         return true;
                     case R.id.inforamation:
-                        startActivity(new Intent(getApplicationContext(),Information.class));
+                        intentInformation.putExtra("meal", number);
+                        startActivity(intentInformation);
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.instructions:
@@ -93,32 +87,35 @@ public class Ingredients extends AppCompatActivity {
                 return false;
             }
         });
-
-        addListenerButton();
+        addListenerButton(number);
     }
 
-    public void addListenerButton() {
-        liter = (EditText)findViewById(R.id.liter);
+
+    @SuppressLint("SetTextI18n")
+    public void addListenerButton(final int number) {
+        capacity = (EditText)findViewById(R.id.liter);
         generate = (Button)findViewById(R.id.generateLiters);
+        ingredientsLayout = (TableLayout)findViewById(R.id.table_layout);
+        meals = new Meals();
+        checkBox = new CheckBox(this);
+        title = (TextView)findViewById(R.id.mealTitleInfo);
 
-        /*
-        Додаємо продукти на панель, присвоюючи їм id
-         */
-
-        sausage = (TextView)findViewById(R.id.valueOfSousage);
-        beet = (TextView)findViewById(R.id.valueOfBeet);
-        carrot = (TextView)findViewById(R.id.valueOfCarrot);
-        potato = (TextView)findViewById(R.id.valueOfPotato);
-        oil = (TextView)findViewById(R.id.valueOfOil);
-        onion = (TextView)findViewById(R.id.valueOfOnion);
-        paste = (TextView)findViewById(R.id.valueOfPast);
-        water = (TextView)findViewById(R.id.valueOfWater);
-        cabbage = (TextView)findViewById(R.id.valueOfCabbage);
-        tomato = (TextView)findViewById(R.id.valueOfTomato);
-        garlic = (TextView)findViewById(R.id.valueOfGarlic);
-        pepper = (TextView)findViewById(R.id.valueOfPepper);
-        salt = (TextView)findViewById(R.id.valueOfSalt);
-        parsley = (TextView)findViewById(R.id.valueOfParsley);
+        switch (number){
+            case 0:
+                title.setText("BORSCH");
+                break;
+            case 1:
+                title.setText("Varenyky");
+                break;
+            case 2:
+                title.setText("UZVAR");
+                break;
+            case 3:
+                title.setText("Sirniks");
+                break;
+            default:
+                break;
+        }
 
         generate.setOnClickListener(
                 new View.OnClickListener() {
@@ -127,32 +124,82 @@ public class Ingredients extends AppCompatActivity {
                     в наступному методі відбувається генерація продуктів, в якій обраховуються пропорції інгредієнтів
                      */
 
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(
-                                Ingredients.this, liter.getText(),
+                                Ingredients.this, capacity.getText(),
                                 Toast.LENGTH_SHORT
                         ).show();
 
-                        int valueOfIngredients = Integer.parseInt(liter.getText().toString());
+                        int valueOfIngredients = Integer.parseInt(capacity.getText().toString());
                         int proportion = 20*(valueOfIngredients - 1);
-
-                        sausage.setText(new Integer(arrayOfProportion[0] + proportion).toString());
-                        beet.setText(new Integer(arrayOfProportion[1] + proportion).toString());
-                        carrot.setText(new Integer(arrayOfProportion[2] + proportion).toString());
-                        potato.setText(new Integer(arrayOfProportion[3] + proportion).toString());
-                        oil.setText(new Integer(arrayOfProportion[4] + proportion).toString());
-                        onion.setText(new Integer(arrayOfProportion[5] + proportion).toString());
-                        paste.setText(new Integer(arrayOfProportion[6] + proportion).toString());
-                        water.setText(new Integer(arrayOfProportion[7] + 900 * (valueOfIngredients - 1)).toString());
-                        cabbage.setText(new Integer(arrayOfProportion[8] + proportion).toString());
-                        tomato.setText(new Integer(arrayOfProportion[9] + proportion).toString());
-                        garlic.setText(new Integer(arrayOfProportion[10] + proportion / 2).toString());
-                        pepper.setText(new Integer(arrayOfProportion[11] + proportion / 4).toString());
-                        salt.setText(new Integer(arrayOfProportion[12] + proportion / 4).toString());
-                        parsley.setText(new Integer(arrayOfProportion[13] + proportion / 2).toString());
+                        chooseMeal(proportion);
                     }
                 }
         );
+    }
+
+    /**
+     * Відповідео до number обираємо
+     * інгредієнти страви
+     * @param value
+     */
+
+    @SuppressLint("SetTextI18n")
+    private void chooseMeal(int value){
+        switch (number){
+            case 0:
+                displayIngredients(
+                        Meals.firstMealIngridients,
+                        Meals.defaultIngredientsBorsch,
+                        value
+                );
+                break;
+            case 1:
+                title.setText("Varenyky");
+                break;
+            case 2:
+                title.setText("UZVAR");
+                break;
+            case 3:
+                title.setText("Sirniks");
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Запускаємо і виводимо інгредієнти
+     * @param mealsIngredients - інгредієнти страви
+     * @param defaultProportion - пропорції інгредієнтів
+     * @param value - к-сть страви(літри або кілограми)
+     */
+
+    @SuppressLint({"SetTextI18n", "ResourceAsColor"})
+    public void displayIngredients(String[] mealsIngredients, int[] defaultProportion, int value){
+        for(int i = 0; i < mealsIngredients.length; i++){
+            TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+            TableRow row = new TableRow(this);
+            checkBox = new CheckBox(this);
+            textView = new TextView(this);
+
+            row.setLayoutParams(layoutParams);
+
+            checkBox.setText("\t\t\t" + mealsIngredients[i]);
+            checkBox.setTextSize(24);
+            checkBox.setTypeface(ResourcesCompat.getFont(this, R.font.comfortaa_light));
+            checkBox.setTextColor(R.color.colorText);
+
+            textView.setText("\t\t\t\t\t\t\t\t\t\t\t\t\t"  + defaultProportion[i] + " gram");
+            textView.setTextSize(24);
+            textView.setTypeface(ResourcesCompat.getFont(this, R.font.comfortaa_light));
+            textView.setTextColor(R.color.colorText);
+
+            row.addView(checkBox);
+            row.addView(textView);
+            ingredientsLayout.addView(row, i);
+        }
     }
 }

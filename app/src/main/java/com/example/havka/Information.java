@@ -33,7 +33,7 @@ public class Information extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Bundle argumentsFirstPage = getIntent().getExtras();
         String s = argumentsFirstPage.get("meal").toString();
-        number = Integer.parseInt(s);
+        number = Integer.parseInt(s); // сторінка запускається з параметрами, для вибору страви
         setContentView(R.layout.activity_information);
 
         // Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
@@ -51,12 +51,14 @@ public class Information extends AppCompatActivity {
          *  Перехід між сторінками №5, №6, №7
          *  По стандарту вибрана сторінкка №5
          */
+        final  Intent intentIngredients = new Intent(getApplicationContext(), Ingredients.class);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.ingridients:
-                        startActivity(new Intent(getApplicationContext(), Ingredients.class));
+                        intentIngredients.putExtra("meal", number);
+                        startActivity(intentIngredients);
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.inforamation:

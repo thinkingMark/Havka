@@ -1,10 +1,5 @@
 package com.example.havka;
 
-import android.widget.TextView;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +10,16 @@ import java.util.List;
 public class Meals {
     static String description;
 
-    static String[] firstMealIngridients =  {"Sausage", "Beet",
+    static int[] defaultIngredientsBorsch = { // інгдедієнти
+            100, 150, // sausage, beet
+            70,  200,  // carrot, potato,
+            50,   70,   // oil, onion
+            100, 100,// paste, cabbage,
+            100,  20,//  tomato, garlic,
+            20,   30  //  pepper, parsley
+    };
+    static String[] firstMealIngridients =  {
+            "Sausage", "Beet",
             "Carrot", "Potato",
             "Oil", "Onion",
             "Paste", "Cabbage",

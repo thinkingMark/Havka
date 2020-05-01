@@ -18,9 +18,9 @@
             android:id="@+id/mealTitleInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100sp"
+            android:layout_marginLeft="90sp"
             android:layout_marginTop="20sp"
-            android:layout_marginRight="100sp"
+            android:layout_marginRight="90sp"
             android:background="@drawable/borsch"
             android:fontFamily="@font/nextart_bold"
             android:textAlignment="center"
@@ -43,7 +43,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/aboutMeals"
@@ -52,8 +52,10 @@
                     android:layout_gravity="fill_horizontal"
                     android:layout_marginLeft="40px"
                     android:layout_marginRight="40px"
+                    android:autoText="false"
                     android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="viewStart"
+                    android:gravity="center|start|end"
+                    android:textAlignment="gravity"
                     android:textColor="#6A6868"
                     android:textSize="20sp"
                     android:textStyle="bold"
