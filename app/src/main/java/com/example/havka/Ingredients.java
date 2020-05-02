@@ -1,16 +1,12 @@
 package com.example.havka;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -20,9 +16,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+import com.google.android.material.internal.FlowLayout;
 
 public class Ingredients extends AppCompatActivity {
 
@@ -34,6 +29,7 @@ public class Ingredients extends AppCompatActivity {
     private Meals meals;
     private int number;
     TextView title;
+    private boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +113,7 @@ public class Ingredients extends AppCompatActivity {
                 break;
         }
 
+
         generate.setOnClickListener(
                 new View.OnClickListener() {
 
@@ -134,6 +131,8 @@ public class Ingredients extends AppCompatActivity {
 
                         int valueOfIngredients = Integer.parseInt(capacity.getText().toString());
                         int proportion = 20*(valueOfIngredients - 1);
+
+                        if (flag) deleteLayouts();
                         chooseMeal(proportion);
                     }
                 }
@@ -157,13 +156,25 @@ public class Ingredients extends AppCompatActivity {
                 );
                 break;
             case 1:
-                title.setText("Varenyky");
+                displayIngredients(
+                        Meals.secondMealIngridients,
+                        Meals.defaultIngredientsVarenyky,
+                        value
+                );
                 break;
             case 2:
-                title.setText("UZVAR");
+                displayIngredients(
+                        Meals.thirdMealIngridients,
+                        Meals.defaultIngredientsUzvar,
+                        value
+                );
                 break;
             case 3:
-                title.setText("Sirniks");
+                displayIngredients(
+                        Meals.fourthMealIngridients,
+                        Meals.defaultIngredientsSirniks,
+                        value
+                );
                 break;
             default:
                 break;
@@ -177,8 +188,9 @@ public class Ingredients extends AppCompatActivity {
      * @param value - к-сть страви(літри або кілограми)
      */
 
-    @SuppressLint({"SetTextI18n", "ResourceAsColor"})
+    @SuppressLint({"SetTextI18n", "ResourceAsColor", "RtlHardcoded"})
     public void displayIngredients(String[] mealsIngredients, int[] defaultProportion, int value){
+        flag = true;
         for(int i = 0; i < mealsIngredients.length; i++){
             TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
             TableRow row = new TableRow(this);
@@ -187,19 +199,31 @@ public class Ingredients extends AppCompatActivity {
 
             row.setLayoutParams(layoutParams);
 
+
             checkBox.setText("\t\t\t" + mealsIngredients[i]);
             checkBox.setTextSize(24);
             checkBox.setTypeface(ResourcesCompat.getFont(this, R.font.comfortaa_light));
             checkBox.setTextColor(R.color.colorText);
 
-            textView.setText("\t\t\t\t\t\t\t\t\t\t\t\t\t"  + defaultProportion[i] + " gram");
+            textView.setText("\t\t\t\t\t\t\t\t"  + (defaultProportion[i] + value) + " g");
             textView.setTextSize(24);
+            textView.setGravity(Gravity.RIGHT);
             textView.setTypeface(ResourcesCompat.getFont(this, R.font.comfortaa_light));
             textView.setTextColor(R.color.colorText);
+
 
             row.addView(checkBox);
             row.addView(textView);
             ingredientsLayout.addView(row, i);
         }
+    }
+
+    /**
+     * Створений для того, щоб очищувати список
+     * кожного разу, коли ми нажимаємо кнопку "Generate"
+     */
+
+    public void  deleteLayouts() {
+        ingredientsLayout.removeAllViewsInLayout();
     }
 }
