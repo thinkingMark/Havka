@@ -52,6 +52,7 @@ public class Information extends AppCompatActivity {
          *  По стандарту вибрана сторінкка №5
          */
         final  Intent intentIngredients = new Intent(getApplicationContext(), Ingredients.class);
+        final Intent INTENT_INSTRUCTIONS = new Intent(getApplicationContext(), Instructions.class);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -65,7 +66,8 @@ public class Information extends AppCompatActivity {
 
                         return true;
                     case R.id.instructions:
-                        startActivity(new Intent(getApplicationContext(),Instructions.class));
+                        INTENT_INSTRUCTIONS.putExtra("meal", number);
+                        startActivity(INTENT_INSTRUCTIONS);
                         overridePendingTransition(0,0);
                         return true;
                 }

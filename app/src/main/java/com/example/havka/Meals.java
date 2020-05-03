@@ -25,14 +25,14 @@ public class Meals {
             100,  20,//  tomato, garlic,
             20,   30  //  pepper, parsley
     };
-    static public MealModel firstMeal = new MealModel("BORSHT",
-            "Borsch is a sour soup common in Eastern Europe and Northern Asia.Made with beetroots as one of the main ingredients, which give the dish its distincti-ve red color. Nice dish.",
+    static public MealModel firstMeal = new MealModel("BORSCHT",
+            "Borscht is a sour soup common in Eastern Europe and Northern Asia.Made with beetroots as one of the main ingredients, which give the dish its distincti-ve red color. Nice dish.",
             "0.5$",
             "1 H",
             "1 L",
             R.drawable.borsh,
             firstMealIngridients,
-            "Borsch.txt");
+            "Borscht.txt");
 
     static String[] secondMealIngridients =  {
             "Potato", "Flour",

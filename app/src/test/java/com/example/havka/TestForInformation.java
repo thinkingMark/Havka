@@ -23,7 +23,7 @@ public class TestForInformation {
     @Test
     public void checkMealFile(){
         mealsModel = Meals.meals[0];
-        assertEquals("Borsch.txt", mealsModel.getFileName());
+        assertEquals("Borscht.txt", mealsModel.getFileName());
         mealsModel = Meals.meals[1];
         assertEquals("Varenyky.txt", mealsModel.getFileName());
         mealsModel = Meals.meals[2];

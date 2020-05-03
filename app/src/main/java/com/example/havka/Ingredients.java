@@ -17,7 +17,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.internal.FlowLayout;
 
 public class Ingredients extends AppCompatActivity {
 
@@ -49,6 +48,7 @@ public class Ingredients extends AppCompatActivity {
         BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
 
         final Intent intentInformation = new Intent(getApplicationContext(),Information.class);
+        final Intent INTENT_INSTRUCTIONS = new Intent(getApplicationContext(), Instructions.class);
 
         // Переключатель сторінок
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -64,7 +64,8 @@ public class Ingredients extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.instructions:
-                        startActivity(new Intent(getApplicationContext(),Instructions.class));
+                        INTENT_INSTRUCTIONS.putExtra("meal", number);
+                        startActivity(INTENT_INSTRUCTIONS);
                         overridePendingTransition(0,0);
                         return true;
                 }
@@ -98,16 +99,16 @@ public class Ingredients extends AppCompatActivity {
 
         switch (number){
             case 0:
-                title.setText("BORSCH");
+                title.setText("BORSCHT");
                 break;
             case 1:
-                title.setText("Varenyky");
+                title.setText("VARENYKY");
                 break;
             case 2:
                 title.setText("UZVAR");
                 break;
             case 3:
-                title.setText("Sirniks");
+                title.setText("SIRNIKS");
                 break;
             default:
                 break;

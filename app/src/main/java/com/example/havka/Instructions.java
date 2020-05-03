@@ -1,5 +1,6 @@
 package com.example.havka;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -27,16 +28,18 @@ public class Instructions extends AppCompatActivity {
     private TextView mTextViewCountDown;
     private Button mButtonStartPause;
     private Button mButtonReset;
-
     private CountDownTimer mCountDownTimer;
-
     private boolean mTimerRunning;
-
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private int number;
+    private TextView mealTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle argumentsFirstPage = getIntent().getExtras();
+        String s = argumentsFirstPage.get("meal").toString();
+        number = Integer.parseInt(s); // сторінка запускається з параметрами, для вибору страви
         setContentView(R.layout.activity_instructions);
 
         mTextViewCountDown = findViewById(R.id.text_View_countdown);
@@ -76,16 +79,22 @@ public class Instructions extends AppCompatActivity {
          *  Перехід між сторінками №5, №6, №7
          *  По стандарту вибрана сторінкка №6
          */
+
+        final Intent INTENT_INFORMATION = new Intent(getApplicationContext(),Information.class);
+        final Intent INTENT_INGREDIENTS = new Intent(getApplicationContext(), Ingredients.class);
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.ingridients:
-                        startActivity(new Intent(getApplicationContext(), Ingredients.class));
+                        INTENT_INGREDIENTS.putExtra("meal", number);
+                        startActivity(INTENT_INGREDIENTS);
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.inforamation:
-                        startActivity(new Intent(getApplicationContext(),Information.class));
+                        INTENT_INFORMATION.putExtra("meal", number);
+                        startActivity(INTENT_INFORMATION);
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.instructions:
@@ -108,6 +117,28 @@ public class Instructions extends AppCompatActivity {
             }
         });
 
+        selectMeal(number);
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void selectMeal(int number){
+        mealTitle = (TextView)findViewById(R.id.mealInstruction);
+        switch (number){
+            case 0:
+                mealTitle.setText("BORSCHT");
+                break;
+            case 1:
+                mealTitle.setText("VARENYKY");
+                break;
+            case 2:
+                mealTitle.setText("UZVAR");
+                break;
+            case 3:
+                mealTitle.setText("SIRNIKS");
+                break;
+            default:
+                break;
+        }
     }
 
     private void pauseTimer() {
