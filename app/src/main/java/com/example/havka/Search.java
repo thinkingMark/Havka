@@ -239,7 +239,7 @@ public class Search extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     switch (Meals.findedList.get(position).getMealTitle()){
-                        case "BORSHT":
+                        case "BORSCHT":
                             intentInformation.putExtra("meal", 0);
                             break;
                         case "VARENYKY":

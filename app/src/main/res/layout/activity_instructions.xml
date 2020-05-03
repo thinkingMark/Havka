@@ -21,7 +21,7 @@
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_height="160px"
+        android:layout_height="64dp"
         android:background="@drawable/backgroundtop"
         app:itemIconTint="@drawable/selector"
         app:itemIconSize="40dp"
@@ -39,10 +39,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="770dp"
-        android:layout_marginVertical="160px"
-        android:layout_marginTop="160px"
-        android:layout_marginLeft="40px"
-        android:layout_marginRight="40px"
+        android:layout_marginVertical="64dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:orientation="vertical">
 
         <TextView
@@ -130,8 +130,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20px"
-            android:layout_marginTop="20px"
+            android:layout_marginVertical="8dp"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal">
 
             <Button

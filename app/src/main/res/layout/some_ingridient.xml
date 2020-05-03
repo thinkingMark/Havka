@@ -9,10 +9,10 @@
 
         <Button
             android:id="@+id/ingridient_button"
-            android:layout_width="300px"
-            android:layout_height="75px"
-            android:layout_marginRight="20px"
-            android:layout_marginLeft="20px"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/nextart_bold"
             android:text="ingridient "
