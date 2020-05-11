@@ -7,13 +7,80 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SIXTH PAGE"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160px"
+        android:layout_marginBottom="160px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mealTitleInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="90sp"
+            android:background="@drawable/borsch"
+            android:fontFamily="@font/nextart_bold"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/liter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="90sp"
+            android:background="@drawable/borsch"
+            android:ems="10"
+            android:fontFamily="@font/nextart_bold"
+            android:hint="LITERS"
+            android:paddingTop="6sp"
+            android:paddingBottom="6sp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/generateLiters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="90sp"
+            android:background="@drawable/generate"
+            android:fontFamily="@font/nextart_bold"
+            android:text="GENERATE"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="40sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginBottom="20sp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/table_layout"
+                >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/table_row"
+                    />
+            </TableLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bootom_navigation"
@@ -23,6 +90,7 @@
         android:background="@drawable/background"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+
         app:menu="@menu/menu_navigation3" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

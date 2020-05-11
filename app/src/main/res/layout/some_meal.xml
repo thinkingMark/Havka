@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/some_meal"
+
+>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="40px"
+        android:paddingLeft="40px"
+        android:paddingRight="40px"
+        android:paddingBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation = "vertical">
+
+        <ImageView
+            android:id="@+id/meal_image"
+            android:layout_width="400px"
+            android:layout_height="400px"
+            app:srcCompat="@drawable/uzvar" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="133px"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/meal_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nextart_semibold"
+                    android:text="10$"
+                    android:textColor="#3c3c3c"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:textSize="36px" />
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_money" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="134px"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/meal_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nextart_semibold"
+                    android:text="1 H"
+                    android:textColor="#3c3c3c"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:textSize="36px" />
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    app:srcCompat="@drawable/ic_timer" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="133px"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/meal_capacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nextart_semibold"
+                    android:text="1 L"
+                    android:textColor="#3c3c3c"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:textSize="36px" />
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_dish" />
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:progressTint="#FFFFFF">>
+
+            <TextView
+                android:id="@+id/meal_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/nextart_bold"
+                android:text="MEAL NAME"
+                android:textColor="#3c3c3c"
+                android:textSize="72px" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:clickable="false"
+                android:isIndicator="false"
+                android:numStars="1"
+                android:rating="0"
+                android:stepSize="1" />
+
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/meal_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:layout_marginTop="5dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in tempus arcu. Duis massa nunc, dictum sed ex finibus, condimentum malesuada diam.Vivamus mollis facilisis fringilla."
+            android:textColor="#3c3c3c"
+            android:layout_marginLeft="15dp"
+            android:textSize="36px" />
+
+        <Button
+            android:id="@+id/meal_button"
+            android:layout_width="300px"
+            android:layout_height="75px"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/nextart_bold"
+            android:text="Cook"
+            android:textColor="#ffffff"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:src="@drawable/bottomcorner"
+        android:paddingLeft="40px"
+        android:paddingRight="40px"/>
+</LinearLayout>
+
+

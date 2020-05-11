@@ -13,6 +13,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button buttonFirstCourse;
+    Button buttonSecondCourse;
+    Button buttonDrinks;
+    Button buttonDesserts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,19 +29,57 @@ public class MainActivity extends AppCompatActivity {
         // Спочатку вибране "Meals",бо це головна сторінка
         bottomNavigationView.setSelectedItemId(R.id.meals);
 
+        // Переключатель сторінок
+        buttonFirstCourse = findViewById(R.id.firstcourse_button);
+        buttonSecondCourse = findViewById(R.id.secondcourse_button);
+        buttonDrinks = findViewById(R.id.drinks_button);
+        buttonDesserts = findViewById(R.id.desserts_button);
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(
+        final Intent intentSorted = new Intent(getApplicationContext(),SortedMeals.class);
+        buttonFirstCourse.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(),SortedMeals.class));
+                        intentSorted.putExtra("meal","0");
+                        startActivity(intentSorted);
                         overridePendingTransition(0,0);
+
                     }
                 }
         );
+        buttonSecondCourse.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intentSorted.putExtra("meal","1");
+                        startActivity(intentSorted);
+                        overridePendingTransition(0,0);
 
-        // Переключатель сторінок
+                    }
+                }
+        );
+        buttonDrinks.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intentSorted.putExtra("meal","2");
+                        startActivity(intentSorted);
+                        overridePendingTransition(0,0);
+
+                    }
+                }
+        );
+        buttonDesserts.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intentSorted.putExtra("meal","3");
+                        startActivity(intentSorted);
+                        overridePendingTransition(0,0);
+
+                    }
+                }
+        );
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -57,4 +100,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    int[] buttonsId = {
+            R.id.firstcourse_button,
+            R.id.secondcourse_button,
+            R.id.drinks_button,
+            R.id.desserts_button
+    };
 }

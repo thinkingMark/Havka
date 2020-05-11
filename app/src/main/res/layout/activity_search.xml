@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Search">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="THIRD PAGE"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
@@ -43,5 +36,58 @@
             android:layout_height="match_parent"
             app:srcCompat="@drawable/logo" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160px"
+        android:layout_marginBottom="160px"
+        android:orientation="vertical">
+
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100px"
+            android:layout_marginTop="30px"
+            android:layout_marginRight="100px"
+            android:layout_marginBottom="30px"
+            android:background="@drawable/search_background"
+            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="@font/comfortaa"
+            android:hint="Select an ingredients"
+            android:paddingLeft="70px"
+            android:paddingTop="30px"
+            android:paddingRight="30px"
+            android:paddingBottom="30px" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="76px"
+            android:orientation="horizontal">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingridient_list"
+                android:layout_marginRight="20px"
+                android:layout_marginLeft="20px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:scrollbars="horizontal" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="0dp"
+android:layout_marginTop="10px"
+
+            android:divider="@android:color/transparent" />
+
+    </LinearLayout>
 
 </RelativeLayout>

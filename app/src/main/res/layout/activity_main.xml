@@ -7,22 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="500dp"
-        android:background="#FF0808"
-        android:text="HOT MEALS" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FIRST PAGE"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bootom_navigation"
@@ -37,20 +24,73 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
         android:layout_height="160px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
         android:background="@drawable/backgroundtop"
-        app:itemIconTint="@drawable/selector"
         app:itemIconSize="40dp"
+        app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector2"
-        app:menu="@menu/menu_navigation2" >
+        app:menu="@menu/menu_navigation2">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_marginLeft="50dp"
             android:layout_width="120dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
             app:srcCompat="@drawable/logo" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160px"
+        android:layout_marginBottom="160px"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/firstcourse_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="40px"
+            android:background="@drawable/firstcourse_button"
+            android:shadowRadius="30" />
+
+        <Button
+            android:id="@+id/secondcourse_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="80px"
+            android:layout_marginRight="40px"
+            android:background="@drawable/secondcourse_button"
+            android:shadowRadius="30" />
+
+        <Button
+            android:id="@+id/drinks_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="80px"
+            android:layout_marginRight="40px"
+            android:background="@drawable/drinks_buttons"
+            android:shadowRadius="30" />
+
+        <Button
+            android:id="@+id/desserts_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="80px"
+            android:layout_marginRight="40px"
+            android:background="@drawable/deserts_button"
+            android:shadowRadius="30" />
+    </LinearLayout>
 
 </RelativeLayout>

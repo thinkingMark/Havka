@@ -7,24 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="500dp"
-        android:background="#FF0808"
-        android:text="Cook"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FOURTH PAGE"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bootom_navigation"
         android:layout_width="match_parent"
@@ -53,5 +35,46 @@
             android:layout_height="match_parent"
             app:srcCompat="@drawable/logo" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160px"
+        android:layout_marginBottom="160px"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100px"
+                android:layout_marginTop="30px"
+                android:layout_marginRight="100px"
+                android:layout_marginBottom="30px"
+                android:background="@drawable/search_background"
+                android:fontFamily="@font/comfortaa"
+                android:hint="Search"
+                android:paddingTop="30px"
+                android:paddingBottom="30px"
+                android:paddingRight="30px"
+                android:paddingLeft="70px"
+                />
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="0dp"
+                android:divider="@android:color/transparent" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

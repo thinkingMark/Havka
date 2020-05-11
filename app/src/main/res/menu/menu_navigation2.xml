@@ -2,11 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item/>
-    <item/>
     <item
-        android:id="@+id/settings"
-        android:icon="@drawable/ic_menu_black_24dp"/>
+        android:title=""
+        android:id="@+id/meals"
+        />
+    <item android:title=""/>
+    <item
+        android:icon="@drawable/ic_menu_black_24dp"
+        android:title="" />
 
 
 </menu>
