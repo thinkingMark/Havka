@@ -2,9 +2,12 @@ package com.example.havka;
 
 
 
+import android.content.ContentValues;
+
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class HavkaActivityTest {
 
@@ -13,6 +16,7 @@ public class HavkaActivityTest {
     private MealModel mealModel = Meals.meals[0];
     private Information informationAboutMeal = new Information();
     private SortedMeals sortedMeals = new SortedMeals();
+    ContentValues contentValues = new ContentValues();
 
     /*
     Перевіряє справність кнопок
@@ -28,9 +32,9 @@ public class HavkaActivityTest {
 
     @Test
     public void testMealModel() {
-        assertEquals("BORSHT", mealModel.getMealTitle());
+        assertEquals("BORSCHT", mealModel.getMealTitle());
         assertEquals(
-                "Borsch is a sour soup common " +
+                "Borscht is a sour soup common " +
                          "in Eastern Europe and Northern Asia." +
                          "Made with beetroots as one of the main ingredients, " +
                         "which give the dish its distincti-ve red color. " +

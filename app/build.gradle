@@ -4,6 +4,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
     defaultConfig {
         applicationId "com.example.havka"
         minSdkVersion 24
@@ -40,4 +44,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:27.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 }

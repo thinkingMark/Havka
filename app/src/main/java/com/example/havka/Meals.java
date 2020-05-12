@@ -91,7 +91,7 @@ public class Meals {
             "Sirniks.txt");
 
     static public MealModel[] meals = {firstMeal, secondMeal, thirdMeal, fouthMeal};
-    static List<MealModel> favouriteList = new LinkedList<MealModel>();
+    static List<MealModel> favouriteList = new ArrayList<MealModel>();
     static ArrayList<MealModel> findedList = new ArrayList<>();
     static ArrayList<String> choosedIngridients = new ArrayList<>();
 

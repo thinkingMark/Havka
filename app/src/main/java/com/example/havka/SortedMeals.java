@@ -1,7 +1,8 @@
 package com.example.havka;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.icu.text.IDNA;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,29 +14,30 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 /**
  *
  *  Cторінка відсортованих страв. За архітектурою програми №4.
  *  Містить список страв. Кожен елемент містить міімальну інформацію про страву*
- *   та кнопку для переходу для детального опису страви.
- *   @version 1.0
+ *  та кнопку для переходу для детального опису страви.
+ *  @version 1.0
  *
  */
 public class SortedMeals extends AppCompatActivity {
 
     private int i;
-    ListView listView;
-    CustomAdapter customAdapter;
-    EditText editText;
-    Intent favouritePage;
-    Information information = new Information();
-    private int position;
+    private EditText editText;
 
+    public ListView listView;
+    public CustomAdapter customAdapter;
+    MealModel mealModel;
+    SharedPreferences sharedPreferences;
+    String SAVED_RATING = "Rating saved";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +105,7 @@ public class SortedMeals extends AppCompatActivity {
     /**
      * Адаптер, що заповнює список.
      */
+
     class CustomAdapter extends BaseAdapter{
 
         /**
@@ -110,6 +113,7 @@ public class SortedMeals extends AppCompatActivity {
          * @return величина списку
          * В нашому випадку повертає 1. Кількість страв повзоляє тільки так
          */
+
         @Override
         public int getCount() {
             return 1;
@@ -141,10 +145,10 @@ public class SortedMeals extends AppCompatActivity {
          */
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(R.layout.some_meal,null);
+            @SuppressLint("ViewHolder") View view = getLayoutInflater().inflate(R.layout.some_meal,null);
 
             RatingBar mRatingBar = (RatingBar)view.findViewById(R.id.ratingBar);
-            Button mButton = (Button)view.findViewById(R.id.meal_button);
+            final Button mButton = (Button)view.findViewById(R.id.meal_button);
             TextView mMealTitle = (TextView)view.findViewById(R.id.meal_title);
             TextView mMealDescription = (TextView)view.findViewById(R.id.meal_description);
             TextView mMealPrice = (TextView)view.findViewById(R.id.meal_price);
@@ -152,18 +156,38 @@ public class SortedMeals extends AppCompatActivity {
             TextView mMealCapacity = (TextView)view.findViewById(R.id.meal_capacity);
             ImageView mMealImage = (ImageView)view.findViewById(R.id.meal_image);
 
-
             mMealTitle.setText(Meals.meals[i].getMealTitle());
             mMealDescription.setText(Meals.meals[i].getMealDescription());
             mMealPrice.setText(Meals.meals[i].getMealPrice());
             mMealTime.setText(Meals.meals[i].getMealTime());
             mMealCapacity.setText(Meals.meals[i].getMealCapacity());
             mMealImage.setImageResource(Meals.meals[i].getMealImages());
-            if(Meals.meals[i].isFavourite)
+
+            mealModel = new MealModel(
+                    Meals.meals[i].getMealTitle(),
+                    Meals.meals[i].getMealDescription(),
+                    Meals.meals[i].getMealPrice(),
+                    Meals.meals[i].getMealTime(),
+                    Meals.meals[i].getMealCapacity(),
+                    Meals.meals[i].getMealImages()
+            );
+
+            if (Meals.meals[i].isFavourite) {
                 mRatingBar.setRating(1);
-            else mRatingBar.setRating(0);
+                saveRating(mRatingBar.getNumStars());
+            } else {
+                mRatingBar.setRating(0);
+                saveRating(mRatingBar.getNumStars());
+            }
 
+            DataBaseHelper dataBaseHelper = new DataBaseHelper(SortedMeals.this);
 
+            for (int j = 0; j < dataBaseHelper.getAll().size(); j++){
+                if (dataBaseHelper.getAll().get(j).getMealTitle().equals(Meals.meals[i].getMealTitle())){
+                    mRatingBar.setRating(loadRating());
+                }
+            }
+            dataBaseHelper.close();
 
             /**
              *  При натиску на зірочку видаляється\додається елемент з\в списку улюблених страв.
@@ -174,12 +198,22 @@ public class SortedMeals extends AppCompatActivity {
                 @Override
                 public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                     if(rating == 1){
+                        DataBaseHelper dataBaseHelper = new DataBaseHelper(SortedMeals.this);
+
+                        boolean success = dataBaseHelper.addOne(mealModel);
                         Meals.meals[i].setFavourite(true);
-                        Meals.favouriteList.add(Meals.meals[i]);
+                        Meals.favouriteList.addAll(dataBaseHelper.getAll());
+
+                        dataBaseHelper.close();
+
+                        Toast.makeText(SortedMeals.this, "Meal add to Favourite", Toast.LENGTH_SHORT).show();
                     }
                     else{
+                        DataBaseHelper dataBaseHelper = new DataBaseHelper(SortedMeals.this);
+                        dataBaseHelper.removeOne(Meals.meals[i].getMealTitle());
                         Meals.meals[i].setFavourite(false);
                         Meals.favouriteList.remove(Meals.meals[i]);
+                        dataBaseHelper.close();
                         initList();
                     }
                 }
@@ -198,20 +232,30 @@ public class SortedMeals extends AppCompatActivity {
                 }
             });
 
-
-
-
             return view;
         }
+    }
+
+    private void saveRating(int value){
+        sharedPreferences = getSharedPreferences("Rating meal's", MODE_PRIVATE);
+        SharedPreferences.Editor ed = sharedPreferences.edit();
+        ed.putInt(SAVED_RATING, value);
+        ed.commit();
+    }
+
+    private int loadRating(){
+        sharedPreferences = getSharedPreferences("Rating meal's", MODE_PRIVATE);
+        int rating = sharedPreferences.getInt(SAVED_RATING, -1);
+        return rating;
     }
 
     /**
      * Метод для оновлення списку страв.
      * За рахунок оновлення адаптера оновлюється список.
      */
+
     public void initList(){
         customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);
     }
-
 }

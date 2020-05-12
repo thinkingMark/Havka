@@ -148,7 +148,6 @@
                 android:stepSize="1" />
 
 
-
         </LinearLayout>
         <TextView
             android:id="@+id/meal_description"

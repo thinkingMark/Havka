@@ -21,6 +21,7 @@ public class MealModel extends ArrayList<Parcelable> {
     int MealImages;
     String FileName;
     boolean isFavourite;
+    byte[] MealImage;
 
     public MealModel(String mealTitle, String mealDescription,String mealPrice, String mealTime,
                      String mealCapacity, int mealImages) {
@@ -41,6 +42,16 @@ public class MealModel extends ArrayList<Parcelable> {
         MealImages = mealImages;
         Ingredients = ingridients;
         FileName = fileName;
+    }
+
+    public MealModel(String mealTitle, String mealDescription,String mealPrice, String mealTime,
+                     String mealCapacity, byte[] arr) {
+        MealTitle = mealTitle;
+        MealDescription = mealDescription;
+        MealPrice = mealPrice;
+        MealTime = mealTime;
+        MealCapacity = mealCapacity;
+        MealImage = arr;
     }
 
     public String getMealTitle() {

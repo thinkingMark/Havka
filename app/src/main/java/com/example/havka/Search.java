@@ -2,6 +2,7 @@ package com.example.havka;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,8 +53,9 @@ public class Search extends AppCompatActivity {
      * Логіка пошуку інгрідієнтів.
      */
     IngredientsForSearch ingredientsForSearch;
-    View view;
-    ListView ingridientList;
+    MealModel mealModel;
+    SharedPreferences sharedPreferences;
+    String SAVED_RATING = "Rating saved";
 
 
     @Override
@@ -208,8 +211,6 @@ public class Search extends AppCompatActivity {
             mMealCapacity = (TextView) view.findViewById(R.id.meal_capacity);
             mMealImage = (ImageView) view.findViewById(R.id.meal_image);
 
-            //     public void setMeals(final int i){
-
             mMealTitle.setText(Meals.findedList.get(position).getMealTitle());
             mMealDescription.setText(Meals.findedList.get(position).getMealDescription());
             mMealPrice.setText(Meals.findedList.get(position).getMealPrice());
@@ -217,18 +218,50 @@ public class Search extends AppCompatActivity {
             mMealCapacity.setText(Meals.findedList.get(position).getMealCapacity());
             mMealImage.setImageResource(Meals.findedList.get(position).getMealImages());
 
-            if (Meals.findedList.get(position).isFavourite)
+            mealModel = new MealModel(
+                    Meals.findedList.get(position).getMealTitle(),
+                    Meals.findedList.get(position).getMealDescription(),
+                    Meals.findedList.get(position).getMealPrice(),
+                    Meals.findedList.get(position).getMealTime(),
+                    Meals.findedList.get(position).getMealCapacity(),
+                    Meals.findedList.get(position).getMealImages()
+            );
+
+            if (Meals.findedList.get(position).isFavourite) {
                 mRatingBar.setRating(1);
-            else mRatingBar.setRating(0);
+                saveRating(mRatingBar.getNumStars());
+            } else {
+                mRatingBar.setRating(0);
+                saveRating(mRatingBar.getNumStars());
+            }
+
+            DataBaseHelper dataBaseHelper = new DataBaseHelper(Search.this);
+
+            for (int j = 0; j < dataBaseHelper.getAll().size(); j++){
+                if (dataBaseHelper.getAll().get(j).getMealTitle().equals(Meals.findedList.get(position).getMealTitle())){
+                    mRatingBar.setRating(loadRating());
+                }
+            }
+            dataBaseHelper.close();
 
             mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                 @Override
                 public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                     if (rating == 1) {
+                        DataBaseHelper dataBaseHelper = new DataBaseHelper(Search.this);
+
+                        boolean success = dataBaseHelper.addOne(mealModel);
+                        Meals.favouriteList.addAll(dataBaseHelper.getAll());
+                        dataBaseHelper.close();
+
                         Meals.meals[position].setFavourite(true);
+                        Toast.makeText(Search.this, "Meal add to Favourite", Toast.LENGTH_SHORT).show();
                     } else {
+                        DataBaseHelper dataBaseHelper = new DataBaseHelper(Search.this);
+                        dataBaseHelper.removeOne(Meals.favouriteList.get(position).getMealTitle());
                         Meals.meals[position].setFavourite(false);
                         Meals.favouriteList.remove(position);
+                        dataBaseHelper.close();
                         initList();
                     }
                 }
@@ -263,6 +296,20 @@ public class Search extends AppCompatActivity {
         }
 
     }
+
+    private void saveRating(int value){
+        sharedPreferences = getSharedPreferences("Rating meal's", MODE_PRIVATE);
+        SharedPreferences.Editor ed = sharedPreferences.edit();
+        ed.putInt(SAVED_RATING, value);
+        ed.commit();
+    }
+
+    private int loadRating(){
+        sharedPreferences = getSharedPreferences("Rating meal's", MODE_PRIVATE);
+        int rating = sharedPreferences.getInt(SAVED_RATING, -1);
+        return rating;
+    }
+
     /**
      * Метод для оновлення списку найдених страви.
      * За рахунок оновлення адаптера оновлюється список.
