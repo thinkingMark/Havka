@@ -67,16 +67,14 @@
             android:layout_marginBottom="20sp">
 
             <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/table_layout"
-                >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/table_row"
-                    />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </TableLayout>
         </ScrollView>
 
