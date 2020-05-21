@@ -27,7 +27,8 @@ public class Ingredients extends AppCompatActivity {
     private TextView textView;
     private Meals meals;
     private int number;
-    TextView title;
+    private TextView title;
+    private TextView capacityMeal;
     private boolean flag = false;
 
     @Override
@@ -88,27 +89,32 @@ public class Ingredients extends AppCompatActivity {
     }
 
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "CutPasteId"})
     public void addListenerButton(final int number) {
-        capacity = (EditText)findViewById(R.id.liter);
+        capacity = (EditText)findViewById(R.id.capacityMeal);
         generate = (Button)findViewById(R.id.generateLiters);
         ingredientsLayout = (TableLayout)findViewById(R.id.table_layout);
         meals = new Meals();
         checkBox = new CheckBox(this);
         title = (TextView)findViewById(R.id.mealTitleInfo);
+        capacityMeal = (TextView)findViewById(R.id.capacityMeal);
 
         switch (number){
             case 0:
                 title.setText("BORSCHT");
+                capacityMeal.setHint("LITERS");
                 break;
             case 1:
                 title.setText("VARENYKY");
+                capacityMeal.setHint("KILOGRAMS");
                 break;
             case 2:
                 title.setText("UZVAR");
+                capacityMeal.setHint("LITERS");
                 break;
             case 3:
                 title.setText("SIRNIKS");
+                capacityMeal.setHint("KILOGRAMS");
                 break;
             default:
                 break;
@@ -125,16 +131,23 @@ public class Ingredients extends AppCompatActivity {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(
-                                Ingredients.this, capacity.getText(),
-                                Toast.LENGTH_SHORT
-                        ).show();
+                        try {
+                            double valueOfIngredients = Double.parseDouble(capacity.getText().toString());
+                            double proportion = 20 * (valueOfIngredients - 1);
 
-                        int valueOfIngredients = Integer.parseInt(capacity.getText().toString());
-                        int proportion = 20*(valueOfIngredients - 1);
+                            if(!capacity.getText().toString().equals("")) {
+                                Toast.makeText(
+                                        Ingredients.this, capacity.getText(),
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            }
 
-                        if (flag) deleteLayouts();
-                        chooseMeal(proportion);
+                            if (flag) deleteLayouts();
+                            chooseMeal(proportion);
+                        } catch (Exception exc){
+                            Toast.makeText(Ingredients.this,"Please input a count of meal",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
         );
@@ -147,7 +160,7 @@ public class Ingredients extends AppCompatActivity {
      */
 
     @SuppressLint("SetTextI18n")
-    private void chooseMeal(int value){
+    private void chooseMeal(double value){
         switch (number){
             case 0:
                 displayIngredients(
@@ -190,7 +203,7 @@ public class Ingredients extends AppCompatActivity {
      */
 
     @SuppressLint({"SetTextI18n", "ResourceAsColor", "RtlHardcoded"})
-    public void displayIngredients(String[] mealsIngredients, int[] defaultProportion, int value){
+    public void displayIngredients(String[] mealsIngredients, int[] defaultProportion, double value){
         flag = true;
         for(int i = 0; i < mealsIngredients.length; i++){
             TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);

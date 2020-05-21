@@ -29,7 +29,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/liter"
+            android:id="@+id/capacityMeal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="90sp"
@@ -38,7 +38,6 @@
             android:background="@drawable/borsch"
             android:ems="10"
             android:fontFamily="@font/nextart_bold"
-            android:hint="LITERS"
             android:paddingTop="6sp"
             android:paddingBottom="6sp"
             android:textAlignment="center"
