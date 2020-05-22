@@ -21,7 +21,7 @@
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_height="64dp"
+        android:layout_height="160px"
         android:background="@drawable/backgroundtop"
         app:itemIconTint="@drawable/selector"
         app:itemIconSize="40dp"
@@ -39,10 +39,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="770dp"
-        android:layout_marginVertical="64dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginVertical="160px"
+        android:layout_marginLeft="4px"
+        android:layout_marginTop="160px"
+        android:layout_marginRight="4px"
         android:orientation="vertical">
 
         <TextView
@@ -57,67 +57,27 @@
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
-            android:textStyle="bold"  />
+            android:textStyle="bold" />
 
-        <CheckBox
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Crumble the sausage (if using) into a skillet over medium-high heat."
-            android:textSize="16dp" />
+            android:layout_height="480dp"
+            android:layout_marginLeft="0sp"
+            android:layout_marginTop="4sp"
+            android:layout_marginRight="0sp"
+            android:layout_marginBottom="20sp">
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cook and stir until no longer pink. Remove from the heat and set aside."
-            android:textSize="16dp" />
+            <TableLayout
+                android:id="@+id/table_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fill a large pot halfway with water(about 2 quarts), and bring to a boil. Add the sausage, and cover the pot."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Return to a boil. Add the beets, and cook until they have lost their color."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Add the carrots and potatoes, and cook until tender, about 15 minutes. "
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add the cabbage, and the can of diced tomatoes."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:text="Heat the oil in a skillet over medium heat."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add the onion, and cook until tender. Stir in the tomato paste and water until well blended. Transfer to the pot."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Add the raw garlic to the soup, cover and turn off the heat."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Let stand for 5 minutes.Taste, and season with salt, pepper and sugar."
-            android:textSize="16dp" />
+                <TableRow
+                    android:id="@+id/table_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </TableLayout>
+        </ScrollView>
 
         <TextView
             android:id="@+id/text_View_countdown"
@@ -130,8 +90,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginVertical="20px"
+            android:layout_marginTop="20px"
             android:orientation="horizontal">
 
             <Button
@@ -155,7 +115,7 @@
                 android:text="Reset"
                 android:textSize="24sp"
                 android:visibility="invisible"
-                tools:visibility="visible"/>
+                tools:visibility="visible" />
         </LinearLayout>
 
     </LinearLayout>
