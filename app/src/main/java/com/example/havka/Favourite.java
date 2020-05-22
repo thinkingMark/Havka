@@ -58,6 +58,8 @@ public class Favourite extends AppCompatActivity {
          */
         bottomNavigationView.setSelectedItemId(R.id.favourite);
 
+        BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
+
         // Переключатель сторінок
         /**
          *  Нижнє поле навігації.
@@ -85,6 +87,19 @@ public class Favourite extends AppCompatActivity {
                 return false;
             }
         });
+
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.meals) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         DataBaseHelper dataBaseHelper = new DataBaseHelper(Favourite.this);
         Meals.favouriteList = dataBaseHelper.getAll();
         dataBaseHelper.close();
@@ -154,8 +169,6 @@ public class Favourite extends AppCompatActivity {
             TextView mMealCapacity = (TextView) view.findViewById(R.id.meal_capacity);
             ImageView mMealImage = (ImageView) view.findViewById(R.id.meal_image);
 
-
-
             mMealTitle.setText(Meals.favouriteList.get(position).getMealTitle());
             mMealDescription.setText(Meals.favouriteList.get(position).getMealDescription());
             mMealPrice.setText(Meals.favouriteList.get(position).getMealPrice());
@@ -163,11 +176,6 @@ public class Favourite extends AppCompatActivity {
             mMealCapacity.setText(Meals.favouriteList.get(position).getMealCapacity());
             mMealImage.setImageResource(Meals.favouriteList.get(position).getMealImages());
 
-//            for (int j = 0; j < Meals.meals.length; j++){
-//                if(Meals.meals[j].isFavourite)
-//                    mRatingBar.setRating(1);
-//                else mRatingBar.setRating(0);
-//            }
             if (Meals.favouriteList.get(position).isFavourite){
                 mRatingBar.setRating(1);
                 saveRating(mRatingBar.getNumStars());

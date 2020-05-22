@@ -75,7 +75,7 @@ public class Search extends AppCompatActivity {
          */
 
         bottomNavigationView.setSelectedItemId(R.id.search);
-
+        BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
 
         /**
          *  Нижнє поле навігації.
@@ -101,6 +101,18 @@ public class Search extends AppCompatActivity {
                 return false;
             }
         });
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.meals) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         listView = (ListView)findViewById(R.id.list);
         findMeals();
         initList();

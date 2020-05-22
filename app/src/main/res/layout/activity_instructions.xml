@@ -84,7 +84,8 @@
             android:layout_width="211dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="       00:00"
+            android:text="00:00"
+            android:textAlignment="center"
 
             android:textSize="36sp" />
         <LinearLayout
@@ -94,28 +95,40 @@
             android:layout_marginTop="20px"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button_start_pause"
-                android:layout_width="205dp"
-                android:layout_height="58dp"
-                android:layout_below="@+id/textView"
-                android:layout_marginTop="1dp"
-                android:layout_toEndOf="@+id/textView"
-                android:layout_toRightOf="@+id/textView"
-                android:text="START"
-                android:textSize="24sp" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button_Reset"
-                android:layout_width="205dp"
-                android:layout_height="58dp"
-                android:layout_below="@+id/textView"
-                android:layout_marginTop="1dp"
-                android:layout_toEndOf="@+id/textView"
-                android:text="Reset"
-                android:textSize="24sp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button_start_pause"
+                        android:layout_width="205dp"
+                        android:layout_height="58dp"
+                        android:layout_below="@+id/textView"
+                        android:layout_marginTop="1dp"
+                        android:layout_toEndOf="@+id/textView"
+                        android:layout_toRightOf="@+id/textView"
+                        android:text="START"
+                        android:textSize="24sp" />
+
+                    <Button
+                        android:id="@+id/button_Reset"
+                        android:layout_width="205dp"
+                        android:layout_height="58dp"
+                        android:layout_below="@+id/textView"
+                        android:layout_marginTop="1dp"
+                        android:layout_toEndOf="@+id/textView"
+                        android:text="Reset"
+                        android:textSize="24sp"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </ScrollView>
+
         </LinearLayout>
 
     </LinearLayout>
