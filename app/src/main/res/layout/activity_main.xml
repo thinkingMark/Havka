@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/firstcourse_button"
             android:shadowRadius="30" />
@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/secondcourse_button"
             android:shadowRadius="30" />
@@ -76,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/drinks_buttons"
             android:shadowRadius="30" />
@@ -87,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/deserts_button"
             android:shadowRadius="30" />

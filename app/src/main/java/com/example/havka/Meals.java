@@ -1,7 +1,6 @@
 package com.example.havka;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -66,7 +65,7 @@ public class Meals {
             20,   30  //  pepper, parsley
     };
     static public MealModel firstMeal = new MealModel("BORSCHT",
-            "Borscht is a sour soup common in Eastern Europe and Northern Asia.Made with beetroots as one of the main ingredients, which give the dish its distincti-ve red color. Nice dish.",
+            "Borscht is a sour soup common in Eastern Europe and Northern Asia.Made with beetroots as one of the main ingredients, which give the dish its distincti-ve red color.",
             "0.5$",
             "1 H",
             "1 L",
@@ -102,7 +101,7 @@ public class Meals {
             30,       // honey
     };
     static public MealModel thirdMeal = new MealModel("UZVAR",
-            "The uzvar is a national Ukrainian beverage, cooked with dried fruits and berries.Some housewives tend to add species – star anise or nutmeg – that will give the drink an exotic flavor.",
+            "The uzvar is a national Ukrainian beverage, cooked with dried fruits and berries.Some housewives tend to add species – star anise or nutmeg – that will give drink an exotic flavor.",
             "0.5$",
             "20 m",
             "1 l",

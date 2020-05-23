@@ -15,12 +15,13 @@
         android:paddingTop="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingBottom="12dp">
+        android:paddingBottom="5dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="212dp"
         android:orientation = "vertical">
+
 
         <ImageView
             android:id="@+id/meal_image"
@@ -32,7 +33,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+
+            >
 
             <LinearLayout
                 android:layout_width="53.2dp"
@@ -43,17 +46,18 @@
                     android:id="@+id/meal_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/nextart_semibold"
                     android:text="10$"
                     android:textColor="#3c3c3c"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:textSize="14.4dp" />
+                    android:textSize="18sp" />
 
                 <ImageView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
                     app:srcCompat="@drawable/ic_money" />
 
             </LinearLayout>
@@ -67,18 +71,18 @@
                     android:id="@+id/meal_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/nextart_semibold"
                     android:text="1 H"
                     android:textColor="#3c3c3c"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:textSize="36px" />
+                    android:textSize="18sp" />
 
                 <ImageView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
                     app:srcCompat="@drawable/ic_timer" />
 
             </LinearLayout>
@@ -92,16 +96,18 @@
                     android:id="@+id/meal_capacity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/nextart_semibold"
                     android:text="1 L"
                     android:textColor="#3c3c3c"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:textSize="14.4dp" />
+                    android:textSize="18sp" />
+
                 <ImageView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
                     app:srcCompat="@drawable/ic_dish" />
 
 
@@ -122,17 +128,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:progressTint="#FFFFFF">>
+            android:progressTint="#FFFFFF"
+            >>
 
             <TextView
                 android:id="@+id/meal_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="-5dp"
                 android:fontFamily="@font/nextart_bold"
                 android:text="MEAL NAME"
                 android:textColor="#3c3c3c"
-                android:textSize="28.8dp" />
+                android:textSize="28.8dp"
+                android:paddingTop="0dp"/>
 
             <RatingBar
                 android:id="@+id/ratingBar"
@@ -154,18 +163,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/comfortaa"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="-4dp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in tempus arcu. Duis massa nunc, dictum sed ex finibus, condimentum malesuada diam.Vivamus mollis facilisis fringilla."
             android:textColor="#3c3c3c"
             android:layout_marginLeft="15dp"
-            android:textSize="14.4dp" />
+            android:textSize="14.4dp"
+            />
 
         <Button
             android:id="@+id/meal_button"
             android:layout_width="120dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/nextart_bold"
             android:text="Cook"

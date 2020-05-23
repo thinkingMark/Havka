@@ -56,10 +56,12 @@ public class Search extends AppCompatActivity {
     MealModel mealModel;
     SharedPreferences sharedPreferences;
     String SAVED_RATING = "Rating saved";
+    boolean listFlag = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
@@ -113,10 +115,14 @@ public class Search extends AppCompatActivity {
             }
         });
 
+
         listView = (ListView)findViewById(R.id.list);
-        findMeals();
-        initList();
-        initIngridientList();
+            initList();
+            initIngridientList();
+            findMeals();
+
+
+
 
 
 
@@ -153,9 +159,11 @@ public class Search extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 Meals.choosedIngridients.add(ingredients.get(position));
+                initIngridientList();
                 findMeals();
                 initList();
-                initIngridientList();
+
+                listFlag = true;
 
             }
 
@@ -410,52 +418,28 @@ public class Search extends AppCompatActivity {
      * Алгоритм пошуку страв за інгрідієнтами.
      */
     public void findMeals() {
-//        boolean flag = false;
-//        /**
-//         * Пробігає циклом по кожній страві попередьно найдених страв
-//         */
-//        for (int i=0; i<Meals.findedList.size(); i++){
-//            /**
-//             * Пробігає циклом по кожному інгрідієнту
-//             */
-//            for(int j = 0; j< Meals.findedList.get(i).Ingridients.length; j++){
-//                /**
-//                 * Якщо знаходить інгрідієнт, то піднімає флажок
-//                 */
-//                if(ingridient.equals(Meals.meals[i].Ingridients[j])){
-//                   flag = true;
-//
-//                }
-//            }
-//            /**
-//             * Якщо флажок опущений, страву видаляємо
-//             */
-//            if(flag == false){
-//                Meals.findedList.remove(Meals.meals[i]);
-//            }
-//
-//        }
 
         Meals.findedList.clear();
         String str = "";
         int cout=0;
-        for(int i = 0; i< Meals.meals.length; i++){
-            for( int j = 0; j< Meals.meals[i].Ingredients.length; j++){
-                str += Meals.meals[i].Ingredients[j];
-            }
-            for(int k = 0; k < Meals.choosedIngridients.size(); k++){
-                if(str.contains(Meals.choosedIngridients.get(k))){
-                    cout ++;
+        if(Meals.choosedIngridients.size()!=0) {
+            for (int i = 0; i < Meals.meals.length; i++) {
+                for (int j = 0; j < Meals.meals[i].Ingredients.length; j++) {
+                    str += Meals.meals[i].Ingredients[j];
                 }
-            }
-            if( cout == Meals.choosedIngridients.size()){
-                Meals.findedList.add(Meals.meals[i]);
-            }
-            cout=0;
-            str = "";
+                for (int k = 0; k < Meals.choosedIngridients.size(); k++) {
+                    if (str.contains(Meals.choosedIngridients.get(k))) {
+                        cout++;
+                    }
+                }
+                if (cout == Meals.choosedIngridients.size()) {
+                    Meals.findedList.add(Meals.meals[i]);
+                }
+                cout = 0;
+                str = "";
 
+            }
         }
-
 
     }
 }
