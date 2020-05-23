@@ -40,86 +40,52 @@
         android:layout_width="match_parent"
         android:layout_height="770dp"
         android:layout_marginVertical="160px"
+        android:layout_marginLeft="4px"
         android:layout_marginTop="160px"
-        android:layout_marginLeft="40px"
-        android:layout_marginRight="40px"
+        android:layout_marginRight="4px"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="BORSH"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="40sp"
-            android:fontFamily="@font/nextart_semibold"/>
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Crumble the sausage (if using) into a skillet over medium-high heat."
-            android:textSize="16dp" />
-
-        <CheckBox
+            android:id="@+id/mealInstruction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cook and stir until no longer pink. Remove from the heat and set aside."
-            android:textSize="16dp" />
+            android:layout_marginLeft="90sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="90sp"
+            android:background="@drawable/borsch"
+            android:fontFamily="@font/nextart_bold"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-        <CheckBox
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fill a large pot halfway with water(about 2 quarts), and bring to a boil. Add the sausage, and cover the pot."
-            android:textSize="16dp" />
+            android:layout_height="480dp"
+            android:layout_marginLeft="0sp"
+            android:layout_marginTop="4sp"
+            android:layout_marginRight="0sp"
+            android:layout_marginBottom="20sp">
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Return to a boil. Add the beets, and cook until they have lost their color."
-            android:textSize="16dp" />
+            <TableLayout
+                android:id="@+id/table_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Add the carrots and potatoes, and cook until tender, about 15 minutes. "
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add the cabbage, and the can of diced tomatoes."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:text="Heat the oil in a skillet over medium heat."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add the onion, and cook until tender. Stir in the tomato paste and water until well blended. Transfer to the pot."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Add the raw garlic to the soup, cover and turn off the heat."
-            android:textSize="16dp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Let stand for 5 minutes.Taste, and season with salt, pepper and sugar."
-            android:textSize="16dp" />
+                <TableRow
+                    android:id="@+id/table_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </TableLayout>
+        </ScrollView>
 
         <TextView
             android:id="@+id/text_View_countdown"
             android:layout_width="211dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="       00:00"
+            android:text="00:00"
+            android:textAlignment="center"
 
             android:textSize="36sp" />
         <LinearLayout
@@ -129,28 +95,40 @@
             android:layout_marginTop="20px"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button_start_pause"
-                android:layout_width="205dp"
-                android:layout_height="58dp"
-                android:layout_below="@+id/textView"
-                android:layout_marginTop="1dp"
-                android:layout_toEndOf="@+id/textView"
-                android:layout_toRightOf="@+id/textView"
-                android:text="START"
-                android:textSize="24sp" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button_Reset"
-                android:layout_width="205dp"
-                android:layout_height="58dp"
-                android:layout_below="@+id/textView"
-                android:layout_marginTop="1dp"
-                android:layout_toEndOf="@+id/textView"
-                android:text="Reset"
-                android:textSize="24sp"
-                android:visibility="invisible"
-                tools:visibility="visible"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button_start_pause"
+                        android:layout_width="205dp"
+                        android:layout_height="58dp"
+                        android:layout_below="@+id/textView"
+                        android:layout_marginTop="1dp"
+                        android:layout_toEndOf="@+id/textView"
+                        android:layout_toRightOf="@+id/textView"
+                        android:text="START"
+                        android:textSize="24sp" />
+
+                    <Button
+                        android:id="@+id/button_Reset"
+                        android:layout_width="205dp"
+                        android:layout_height="58dp"
+                        android:layout_below="@+id/textView"
+                        android:layout_marginTop="1dp"
+                        android:layout_toEndOf="@+id/textView"
+                        android:text="Reset"
+                        android:textSize="24sp"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </ScrollView>
+
         </LinearLayout>
 
     </LinearLayout>

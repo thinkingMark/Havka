@@ -1,6 +1,7 @@
 package com.example.havka;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,10 +38,15 @@ public class Favourite extends AppCompatActivity {
      *  По стандарту вибрана сторінкка №2
      */
     BottomNavigationView bottomNavigationView;
+    SharedPreferences sharedPreferences;
+    String SAVED_RATING = "Rating saved";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_favourite);
         /**
          *  Ініцілізуємо змінну та присвоюємо їй обєкт з activity_main.xml
@@ -50,6 +57,8 @@ public class Favourite extends AppCompatActivity {
          *  Спочатку вибране "Meals",бо це головна сторінка
          */
         bottomNavigationView.setSelectedItemId(R.id.favourite);
+
+        BottomNavigationView topNavigationView = findViewById(R.id.top_navigation);
 
         // Переключатель сторінок
         /**
@@ -78,6 +87,23 @@ public class Favourite extends AppCompatActivity {
                 return false;
             }
         });
+
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.meals) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(Favourite.this);
+        Meals.favouriteList = dataBaseHelper.getAll();
+        dataBaseHelper.close();
+
         listView = (ListView)findViewById(R.id.listView);
         initList();
     }
@@ -143,16 +169,30 @@ public class Favourite extends AppCompatActivity {
             TextView mMealCapacity = (TextView) view.findViewById(R.id.meal_capacity);
             ImageView mMealImage = (ImageView) view.findViewById(R.id.meal_image);
 
-
             mMealTitle.setText(Meals.favouriteList.get(position).getMealTitle());
             mMealDescription.setText(Meals.favouriteList.get(position).getMealDescription());
             mMealPrice.setText(Meals.favouriteList.get(position).getMealPrice());
             mMealTime.setText(Meals.favouriteList.get(position).getMealTime());
             mMealCapacity.setText(Meals.favouriteList.get(position).getMealCapacity());
             mMealImage.setImageResource(Meals.favouriteList.get(position).getMealImages());
-            if (Meals.favouriteList.get(position).isFavourite)
+
+            if (Meals.favouriteList.get(position).isFavourite){
                 mRatingBar.setRating(1);
-            else mRatingBar.setRating(0);
+                saveRating(mRatingBar.getNumStars());
+            } else {
+                mRatingBar.setRating(0);
+                saveRating(mRatingBar.getNumStars());
+            }
+
+            DataBaseHelper dataBaseHelper = new DataBaseHelper(Favourite.this);
+
+            for (int j = 0; j < dataBaseHelper.getAll().size(); j++){
+                if (dataBaseHelper.getAll().get(j).getMealTitle().equals(Meals.favouriteList.get(position).getMealTitle())){
+                    mRatingBar.setRating(loadRating());
+                }
+            }
+
+            dataBaseHelper.close();
 
             /**
             * При натиску на зірочку видаляється\додається елемент з\в списку улюблених страв.
@@ -163,9 +203,13 @@ public class Favourite extends AppCompatActivity {
                 public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                     if (rating == 1) {
                         Meals.meals[position].setFavourite(true);
+                        Toast.makeText(Favourite.this, "Meal add to Favourite", Toast.LENGTH_SHORT).show();
                     } else {
+                        DataBaseHelper dataBaseHelper = new DataBaseHelper(Favourite.this);
+                        dataBaseHelper.removeOne(Meals.favouriteList.get(position).getMealTitle());
                         Meals.meals[position].setFavourite(false);
                         Meals.favouriteList.remove(position);
+                        dataBaseHelper.close();
                         initList();
                     }
 
@@ -176,14 +220,51 @@ public class Favourite extends AppCompatActivity {
              *  При натиску на кнопку переходить на сторінку №5 за архітектурою програми.
              *  Сторінка містить інформацію про страву.
              */
+            final Intent intentInformation = new Intent(getApplicationContext(), Information.class);
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(), Information.class));
+                    switch (Meals.favouriteList.get(position).getMealTitle()){
+                        case "BORSCHT":
+                            intentInformation.putExtra("meal", 0);
+                            break;
+                        case "VARENYKY":
+                            intentInformation.putExtra("meal", 1);
+                            break;
+                        case "UZVAR":
+                            intentInformation.putExtra("meal", 2);
+                            break;
+                        case "SIRNIKS":
+                            intentInformation.putExtra("meal", 3);
+                            break;
+                        default:
+                            break;
+                    }
+                    startActivity(intentInformation);
                     overridePendingTransition(0, 0);
+
                 }
             });
                 return view;
+        }
     }
+
+    private void saveRating(int value){
+        sharedPreferences = getSharedPreferences("Rating meal's", MODE_PRIVATE);
+        SharedPreferences.Editor ed = sharedPreferences.edit();
+        ed.putInt(SAVED_RATING, value);
+        ed.commit();
+    }
+
+    private int loadRating(){
+        sharedPreferences = getSharedPreferences("Rating meal's", MODE_PRIVATE);
+        int rating = sharedPreferences.getInt(SAVED_RATING, -1);
+        return rating;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }

@@ -9,8 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="160px"
-        android:layout_marginBottom="160px"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="64dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -24,17 +24,17 @@
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100px"
-                android:layout_marginTop="30px"
-                android:layout_marginRight="100px"
-                android:layout_marginBottom="30px"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/search_background"
                 android:fontFamily="@font/comfortaa"
                 android:hint="Search"
-                android:paddingTop="30px"
-                android:paddingBottom="30px"
-                android:paddingRight="30px"
-                android:paddingLeft="70px"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:paddingRight="12dp"
+                android:paddingLeft="28dp"
                 android:focusable="false"
                 android:focusableInTouchMode="false"/>
 
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
 
         android:id="@+id/bootom_navigation"
-        android:layout_height="160px"
+        android:layout_height="64dp"
         android:background="@drawable/background"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
@@ -63,7 +63,7 @@
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_height="160px"
+        android:layout_height="64dp"
         android:background="@drawable/backgroundtop"
         app:itemIconTint="@drawable/selector"
         app:itemIconSize="40dp"

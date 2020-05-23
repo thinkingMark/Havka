@@ -10,36 +10,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="160px"
-        android:layout_marginBottom="160px"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="64dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/borsch"
+            android:id="@+id/mealTitleInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100sp"
+            android:layout_marginLeft="90sp"
             android:layout_marginTop="20sp"
-            android:layout_marginRight="100sp"
+            android:layout_marginRight="90sp"
             android:background="@drawable/borsch"
             android:fontFamily="@font/nextart_bold"
-            android:text="BORSCH"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/liter"
+            android:id="@+id/capacityMeal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100sp"
+            android:layout_marginLeft="90sp"
             android:layout_marginTop="20sp"
-            android:layout_marginRight="100sp"
+            android:layout_marginRight="90sp"
             android:background="@drawable/borsch"
             android:ems="10"
             android:fontFamily="@font/nextart_bold"
-            android:hint="LITERS"
             android:paddingTop="6sp"
             android:paddingBottom="6sp"
             android:textAlignment="center"
@@ -49,9 +47,9 @@
             android:id="@+id/generateLiters"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100sp"
+            android:layout_marginLeft="90sp"
             android:layout_marginTop="20sp"
-            android:layout_marginRight="100sp"
+            android:layout_marginRight="90sp"
             android:background="@drawable/generate"
             android:fontFamily="@font/nextart_bold"
             android:text="GENERATE"
@@ -59,331 +57,25 @@
             android:textColor="@color/colorPrimary"
             android:textSize="30sp" />
 
-        <TableLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20px"
-            android:layout_marginLeft="20px"
-            android:layout_marginTop="60px"
-            android:layout_marginBottom="40px"
-            >
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="40sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginBottom="20sp">
 
-            <TableRow
+            <TableLayout
+                android:id="@+id/table_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <CheckBox
-                    android:id="@+id/sousage"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Sausage(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfSousage"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp" />
-
-                <CheckBox
-                    android:id="@+id/beet"
-                    android:layout_width="140dp"
-                    android:layout_height="30dp"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Beet(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfBeet"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <CheckBox
-                    android:id="@+id/carrot"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Carrot(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfCarrot"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="20sp" />
-
-                <CheckBox
-                    android:id="@+id/ppotato"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Potato(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfPotato"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="20sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <CheckBox
-                    android:id="@+id/oil"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Oil(ml)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfOil"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="20sp" />
-
-                <CheckBox
-                    android:id="@+id/onion"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Onion(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfOnion"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="20sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <CheckBox
-                    android:id="@+id/paste"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Paste(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfPast"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="20sp" />
-
-                <CheckBox
-                    android:id="@+id/water"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Water(ml)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfWater"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="20sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <CheckBox
-                    android:id="@+id/cabbage"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Cabbage(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfCabbage"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp" />
-
-                <CheckBox
-                    android:id="@+id/tomato"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Tomato(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfTomato"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <CheckBox
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Garlic(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfGarlic"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp" />
-
-                <CheckBox
-                    android:id="@+id/pepper"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Pepper(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfPepper"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <CheckBox
-                    android:id="@+id/salt"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Salt"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfSalt"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp" />
-
-                <CheckBox
-                    android:id="@+id/parsley"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:text="Parsley(g)"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/valueOfParsley"
-                    android:layout_width="58dp"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/comfortaa_light"
-                    android:textAlignment="center"
-                    android:textColor="#6A6868"
-                    android:textSize="18sp" />
-            </TableRow>
-
-        </TableLayout>
+                <TableRow
+                    android:id="@+id/table_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </TableLayout>
+        </ScrollView>
 
     </LinearLayout>
 
@@ -391,7 +83,7 @@
         android:id="@+id/bootom_navigation"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_height="160px"
+        android:layout_height="64dp"
         android:background="@drawable/background"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
@@ -402,7 +94,7 @@
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_height="160px"
+        android:layout_height="64dp"
         android:background="@drawable/backgroundtop"
         app:itemIconTint="@drawable/selector"
         app:itemIconSize="40dp"

@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="40px"
-        android:paddingLeft="40px"
-        android:paddingRight="40px"
+        android:paddingTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:paddingBottom="12dp">
 
     <LinearLayout
@@ -24,8 +24,8 @@
 
         <ImageView
             android:id="@+id/meal_image"
-            android:layout_width="400px"
-            android:layout_height="400px"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             app:srcCompat="@drawable/uzvar" />
 
 
@@ -35,7 +35,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="133px"
+                android:layout_width="53.2dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -48,7 +48,7 @@
                     android:textColor="#3c3c3c"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:textSize="36px" />
+                    android:textSize="14.4dp" />
 
                 <ImageView
 
@@ -59,7 +59,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="134px"
+                android:layout_width="53.6dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -84,7 +84,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="133px"
+                android:layout_width="53.2dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -97,7 +97,7 @@
                     android:textColor="#3c3c3c"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:textSize="36px" />
+                    android:textSize="14.4dp" />
                 <ImageView
 
                     android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
                 android:fontFamily="@font/nextart_bold"
                 android:text="MEAL NAME"
                 android:textColor="#3c3c3c"
-                android:textSize="72px" />
+                android:textSize="28.8dp" />
 
             <RatingBar
                 android:id="@+id/ratingBar"
@@ -148,7 +148,6 @@
                 android:stepSize="1" />
 
 
-
         </LinearLayout>
         <TextView
             android:id="@+id/meal_description"
@@ -159,12 +158,12 @@
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in tempus arcu. Duis massa nunc, dictum sed ex finibus, condimentum malesuada diam.Vivamus mollis facilisis fringilla."
             android:textColor="#3c3c3c"
             android:layout_marginLeft="15dp"
-            android:textSize="36px" />
+            android:textSize="14.4dp" />
 
         <Button
             android:id="@+id/meal_button"
-            android:layout_width="300px"
-            android:layout_height="75px"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="65dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/button_background"
@@ -178,10 +177,10 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="5px"
+        android:layout_height="2dp"
         android:src="@drawable/bottomcorner"
-        android:paddingLeft="40px"
-        android:paddingRight="40px"/>
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"/>
 </LinearLayout>
 
 

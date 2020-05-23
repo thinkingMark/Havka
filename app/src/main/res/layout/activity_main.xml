@@ -15,7 +15,7 @@
         android:id="@+id/bootom_navigation"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_height="160px"
+        android:layout_height="64dp"
         android:background="@drawable/background"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
@@ -24,37 +24,38 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
+        android:layout_height="64dp"
         android:layout_alignParentTop="true"
-        android:layout_height="160px"
+        android:layout_marginTop="0dp"
         android:background="@drawable/backgroundtop"
-        app:itemIconTint="@drawable/selector"
         app:itemIconSize="40dp"
+        app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector2"
-        app:menu="@menu/menu_navigation2" >
+        app:menu="@menu/menu_navigation2">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_marginLeft="50dp"
             android:layout_width="120dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
             app:srcCompat="@drawable/logo" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="160px"
-        android:layout_marginBottom="160px"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="64dp"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/firstcourse_button"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
-            android:layout_height="300px"
-            android:layout_marginLeft="40px"
-            android:layout_marginTop="100px"
-            android:layout_marginRight="40px"
+            android:layout_height="120dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/firstcourse_button"
             android:shadowRadius="30" />
 
@@ -62,10 +63,10 @@
             android:id="@+id/secondcourse_button"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
-            android:layout_height="300px"
-            android:layout_marginLeft="40px"
-            android:layout_marginTop="80px"
-            android:layout_marginRight="40px"
+            android:layout_height="120dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/secondcourse_button"
             android:shadowRadius="30" />
 
@@ -73,10 +74,10 @@
             android:id="@+id/drinks_button"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
-            android:layout_height="300px"
-            android:layout_marginLeft="40px"
-            android:layout_marginTop="80px"
-            android:layout_marginRight="40px"
+            android:layout_height="120dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/drinks_buttons"
             android:shadowRadius="30" />
 
@@ -84,10 +85,10 @@
             android:id="@+id/desserts_button"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
-            android:layout_height="300px"
-            android:layout_marginLeft="40px"
-            android:layout_marginTop="80px"
-            android:layout_marginRight="40px"
+            android:layout_height="120dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/deserts_button"
             android:shadowRadius="30" />
     </LinearLayout>
