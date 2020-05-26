@@ -22,9 +22,9 @@ public class Meals {
     static String[] secondMealInstructions =  {
             "Wash, peel and cut the potatoes into big pieces.Cook the potatoes in the \n salted water for 15-20 minutes. ",
             "Peel and dice the onion.Heat the \n vegetable oil in the frying pan; brown \nthe onion.",
-            "Pour off the water from boiled potatoes.",
+            "Pour boiled potato water.",
             "Add the 1/3 of fried onion, butter, \n pepper,salt and stir well. Set the \nstuffing aside to cool.",
-            "Combine the kefir, soda, salt\n and stir well.Stir the flour \nthrough and make dough.",
+            "Combine the kefir, soda, salt and\n stir well.Stir the flour through\n and make dough.",
             "The dough should not be stick but \nstiff and fully combined.",
             "Split the dough into two rolls and \n cut them into little pieces. Shape thin \n tablets with rolling pin. Dip each side \n of the table in the flour.",
             "Spoon the stuffing in the middle of \n the tablet and stick edges together.",
@@ -33,19 +33,19 @@ public class Meals {
             "Season the cooked vereniki with the \n remaining browned onion and serve \n with sour cream."};
     static String[] thirdMealInstructions =  {
             "Prepare the ingredients. Wash the \ndried fruit.Carefully make sure that \nthey do not have sand or soil residues.",
-            "Put all the dried fruits (apples, \npears and plums) in a large pot for \ncooking, fill it with cold water, cover and \n place on to the burner,  on a moderat fire \n and bring to simmer to boil.",
+            "Put all the dried fruits (apples,pears\n and plums) in a large pot for cooking\n , fill it with cold water, cover and \n place on to the burner,  on a moderat fire \n and bring to simmer to boil.",
             "Simmer for 10-15 minutes, then taste \nand add sugar(or honey), if necessary. \nThe amount of sugar (or honey) may \nvary. It all depends on the \nsweetness of fruit.",
             "If the fruit sweet enough, you can do \nwithout sugar. Compote should not be \ncloyingly sweet - the taste of fruits themselves\n must dominate.",
-            "Remove the pan from the burner and\n let uzvar cooled to room temperature, \nwhich may take several hours,during \nwhich the drink is brewed.",
+            "Remove the pan from the burner? \n let uzvar cooled to room temperature, \nwhich may take several hours,during \nwhich the drink is brewed.",
             "Drain uzvar, separating the liquid \n from the pulp of fruit. If you see that \n the liquid is too dense, add a little \nboiling water to dilute the compote.",
-            "Pour the compote into a jug. Serve \nchilled or at room temperature. It may well be\n stored in the refrigerator for several\n days."};
+            "Pour the compote into a jug. Serve \nchilled or at room temperature. It may \nwell be stored in the refrigerator for\n several\n days."};
     static String[] fourthMealInstructions =  {
-            "In a small bowl, lay 400 g of cottage\n cheese, 1 egg, 3 tbsp. l sugar. It is best\n to use homemade cottage cheese \npurchased at the bazaar.Cottage cheese \nshould not be acidic and excessively wet.",
+            "In a small bowl, lay 400 g of cottage\n cheese, 1 egg, 3 tbsp. l sugar. It is best\n to use homemade cottage cheese \npurchased at the bazaar.",
             "Mix all ingredients until smooth. You\n can try the mixture while stirring and \nadd a little sugar if the cheesecakes \ndo not seem sweet enough to you.",
-            "Add to the cottage cheese 3 tbsp.l \nflour. If the cottage cheese is very wet, \n add 1 tbsp. l more flour. The main thing here is \n to maintain a balance so that cheesecakes \nare not too dense.",
-            "Form small balls from the curd mass\n then flatten them a little with your hands. \nSo that the curd mass does not stick \nto \nyour hands, you can lubricate them \nwith a few drops of sunflower oil.",
+            "Add to the cottage cheese 3 tbsp.l \nflour. If the cottage cheese is very wet, \n add 1 tbsp. l more flour. The main thing\n here is to maintain a balance so\n that cheesecakes are not too dense.",
+            "Form small balls from the curd mass\n then flatten them a little with your\n hands. So that the curd mass does not\n stick to your hands, you can lubricate \nthem with a few drops of sunflower oil.",
             "Roll the cottage cheese pancakes in\n flour so that they better keep their\n shape and fry with a beautiful golden crust.",
-            "Fry the cheesecakes in a well-heated\n skillet with  3-4 tbsp. l sunflower oil on \neach side  until golden brown.Fry the \ncheesecakes over medium heat,so you get the\n optimal frying.",
+            "Fry the cheesecakes in a well-heated\n skillet with  3-4 tbsp. l sunflower oil on \neach side  until golden brown. Fry the \ncheesecakes over medium heat,so you get the\n optimal frying.",
             "Put the finished cheesecakes on a\n plate covered with a paper towel so \nthat excess fat is absorbed into it.\n Serve cheese cakes with jam, jam or\n sour cream. Or you can just sprinkle\n them with powdered sugar through a \nfine sieve."};
 
 

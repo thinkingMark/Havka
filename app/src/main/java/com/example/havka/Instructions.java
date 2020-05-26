@@ -187,7 +187,7 @@ public class Instructions extends AppCompatActivity {
 
 
             checkBox.setText("\t\t\t" + mealsInstructions[i]);
-            checkBox.setTextSize(20);
+            checkBox.setTextSize(18);
             checkBox.setTypeface(ResourcesCompat.getFont(this, R.font.comfortaa_light));
             checkBox.setTextColor(R.color.colorText);
 
